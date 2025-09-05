@@ -1,0 +1,118 @@
+{% extends "_base.html" %}
+
+{% block title %}Adopt - Barb's Dog Rescue{% endblock %}
+
+{% block content %}
+<!-- Page Title -->
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Adopt</h2>
+      <ol>
+        <li><a href="{{ url_for('home.home') }}">Home</a></li>
+        <li>Adopt</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- Adoption Section -->
+<section class="inner-page">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2>Find Your Perfect Companion</h2>
+        <p class="lead">Discover dogs looking for their forever homes</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- This would eventually be populated from a database -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <img src="{{ url_for('static', filename='img/portfolio/app-1.jpg') }}" class="card-img-top" alt="Dog Photo Placeholder">
+          <div class="card-body">
+            <h5 class="card-title">Max</h5>
+            <p class="card-text">Male | 2 years | Medium</p>
+            <p class="card-text">Friendly and energetic dog looking for an active family.</p>
+            <a href="#" class="btn-primary w-100">Learn More</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <img src="{{ url_for('static', filename='img/portfolio/app-2.jpg') }}" class="card-img-top" alt="Dog Photo Placeholder">
+          <div class="card-body">
+            <h5 class="card-title">Bella</h5>
+            <p class="card-text">Female | 4 years | Small</p>
+            <p class="card-text">Sweet and affectionate companion who loves cuddles.</p>
+            <a href="#" class="btn-primary w-100">Learn More</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6">
+        <div class="card">
+          <img src="{{ url_for('static', filename='img/portfolio/app-3.jpg') }}" class="card-img-top" alt="Dog Photo Placeholder">
+          <div class="card-body">
+            <h5 class="card-title">Rocky</h5>
+            <p class="card-text">Male | 1 year | Large</p>
+            <p class="card-text">Playful and loyal dog who gets along with children.</p>
+            <a href="#" class="btn-primary w-100">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="card p-4">
+          <h3 class="card-title">Adoption Process</h3>
+          <p>Here's how our adoption process works:</p>
+          
+          <div class="d-flex mb-3">
+            <div class="icon-box me-3">
+              <span class="icon"><i class="bi bi-1-circle"></i></span>
+            </div>
+            <div>
+              <h5>Browse Available Dogs</h5>
+              <p>Look through our selection of dogs in need of homes.</p>
+            </div>
+          </div>
+          
+          <div class="d-flex mb-3">
+            <div class="icon-box me-3">
+              <span class="icon"><i class="bi bi-2-circle"></i></span>
+            </div>
+            <div>
+              <h5>Submit Application</h5>
+              <p>Fill out our adoption application form.</p>
+            </div>
+          </div>
+          
+          <div class="d-flex mb-3">
+            <div class="icon-box me-3">
+              <span class="icon"><i class="bi bi-3-circle"></i></span>
+            </div>
+            <div>
+              <h5>Meet & Greet</h5>
+              <p>Schedule a time to meet your potential new family member.</p>
+            </div>
+          </div>
+          
+          <div class="d-flex">
+            <div class="icon-box me-3">
+              <span class="icon"><i class="bi bi-4-circle"></i></span>
+            </div>
+            <div>
+              <h5>Welcome Home</h5>
+              <p>Complete the adoption process and welcome your new friend home!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

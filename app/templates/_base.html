@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{% block title %}Barb's Dog Rescue{% endblock %}</title>
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/barbs-favicon.png') }}" rel="icon" type="image/png">
+  <link href="{{ url_for('static', filename='img/barbs-logo.png') }}" rel="apple-touch-icon">
+  <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
+  <meta name="theme-color" content="#B12025">
+  <meta name="msapplication-TileColor" content="#B12025">
+  <meta name="msapplication-TileImage" content="{{ url_for('static', filename='img/barbs-logo.png') }}">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+  
+  <!-- Combined Barb's CSS - All custom styles in one file -->
+  <link href="{{ url_for('static', filename='css/barbs.css') }}?v=1.0" rel="stylesheet">
+</head>
+
+<body class="index-page">
+  <style>
+    /* Critical overrides that must be applied */
+    .topbar { background-color: #B12025 !important; } /* Changed to red */
+    .branding { background-color: #F9CD2A !important; }
+    .hero { background-color: #F9CD2A !important; }
+    .feature-boxes { background-color: #008B79 !important; }
+    .topbar .contact-info i, .topbar .contact-info a, .topbar .social-links a { color: white !important; }
+    .navmenu ul li a { color: #333 !important; }
+    /* Logo styling */
+    .logo-img, .footer-logo { display: inline-block !important; max-height: 50px !important; width: auto !important; border-radius: 50%; }
+  </style>
+
+  {% block header %}
+    {% include "partials/navbar.html" %}
+  {% endblock %}
+
+  {% block content %}{% endblock %}
+
+  {% block footer %}
+    {% include "partials/footer.html" %}
+  {% endblock %}
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+
+  <!-- Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <!-- Text override -->
+  <script src="{{ url_for('static', filename='js/text-override.js') }}?v=1.0"></script>
+</body>
+</html>

@@ -1,0 +1,563 @@
+/**
+ * Barb's Dog Rescue - Combined CSS File
+ * This file contains all custom styles that were previously in separate files
+ */
+
+/* -----------------------------------------
+   1. Core Variables and Base Styles
+----------------------------------------- */
+:root {
+  /* Core brand colors from logo */
+  --barbs-primary: #B12025;     /* Burgundy/red from logo */
+  --barbs-secondary: #F9CD2A;   /* Yellow from logo/dog */
+  --barbs-accent: #008B79;      /* Teal green for accents */
+  --barbs-light: #FFFFFF;
+  --barbs-dark: #333333;
+}
+
+/* -----------------------------------------
+   2. Header & Navigation
+----------------------------------------- */
+/* Topbar styling */
+.topbar {
+  background-color: var(--barbs-primary) !important; /* Red */
+  color: white !important;
+}
+
+.topbar .contact-info i,
+.topbar .contact-info a,
+.topbar .contact-info span,
+.topbar .social-links a,
+.topbar .social-links i {
+  color: white !important;
+}
+
+/* Branding section */
+.branding {
+  background-color: var(--barbs-secondary) !important; /* Yellow */
+  padding: 10px 0 !important;
+}
+
+/* Logo styling */
+.logo {
+  display: flex !important;
+  align-items: center !important;
+  padding: 10px 0;
+  z-index: 100 !important;
+  position: relative !important;
+}
+
+.logo img,
+.header .logo img,
+.branding .logo img,
+.logo-img {
+  max-height: 50px !important;
+  width: auto !important;
+  display: inline-block !important;
+  margin-right: 12px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  border-radius: 50%;
+}
+
+/* Clear any potential conflicting styles */
+.header .logo::before,
+.header .logo::after {
+  display: none !important;
+  content: none !important;
+}
+
+.logo .sitename {
+  display: inline-block !important;
+  color: var(--barbs-dark) !important;
+  margin: 0 !important;
+}
+
+/* Navigation styling */
+.navmenu ul li a {
+  color: var(--barbs-dark) !important;
+}
+
+.navmenu ul li a:hover,
+.navmenu .active,
+.navmenu ul li a.active {
+  color: var(--barbs-primary) !important; /* Red hover */
+}
+
+/* -----------------------------------------
+   3. Hero Section
+----------------------------------------- */
+.hero {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 140px 0 180px 0; /* Increased bottom padding */
+  background: var(--barbs-secondary) !important; /* Yellow */
+  color: var(--barbs-dark) !important;
+}
+
+.hero h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--barbs-dark);
+  line-height: 1.2;
+}
+
+.hero h2 .accent {
+  color: var(--barbs-primary);
+}
+
+.hero p {
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: var(--barbs-dark);
+}
+
+.hero-img img {
+  max-width: 100%;
+  border-radius: 8px; /* Added rounded corners to make the image pop */
+}
+
+/* Hero buttons */
+.hero .btn-get-started {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 36px;
+  border-radius: 50px;
+  transition: 0.3s;
+  margin: 10px;
+  color: var(--barbs-light);
+  background: var(--barbs-primary);
+  border: 2px solid var(--barbs-primary);
+  box-shadow: 0 8px 15px rgba(177, 32, 37, 0.2);
+}
+
+.hero .btn-get-started:hover {
+  background: transparent;
+  color: var(--barbs-primary);
+  box-shadow: 0 10px 20px rgba(177, 32, 37, 0.25);
+  transform: translateY(-2px);
+}
+
+.hero .btn-watch-video {
+  font-size: 16px;
+  transition: 0.5s;
+  margin: 10px;
+  color: var(--barbs-dark);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding: 12px 30px;
+  border: 2px solid var(--barbs-dark);
+  border-radius: 50px;
+}
+
+.hero .btn-watch-video i {
+  color: var(--barbs-primary);
+  font-size: 24px;
+  transition: 0.3s;
+  margin-right: 8px;
+}
+
+.hero .btn-watch-video:hover {
+  background: var(--barbs-dark);
+  color: var(--barbs-light);
+}
+
+.hero .btn-watch-video:hover i {
+  color: var(--barbs-light);
+}
+
+/* -----------------------------------------
+   4. Feature Boxes
+----------------------------------------- */
+.feature-boxes {
+  background-color: var(--barbs-accent) !important; /* Teal green */
+  color: var(--barbs-light) !important;
+  padding: 80px 0 60px;
+  position: relative;
+  z-index: 4;
+}
+
+/* Remove the before pseudo-element to have cleaner design */
+.feature-boxes .icon-boxes {
+  position: relative;
+  padding-top: 0;
+  margin-top: -40px;
+}
+
+.feature-boxes .icon-box {
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  background: var(--barbs-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+  border-radius: 10px;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  color: var(--barbs-light);
+  transform: translateY(0);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+}
+
+.feature-boxes .icon-box .title {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.feature-boxes .icon-box .title a {
+  color: var(--barbs-light);
+  transition: 0.3s;
+}
+
+.feature-boxes .icon-box .icon {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 15px;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  font-size: 42px;
+  line-height: 1;
+  color: var(--barbs-light);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-boxes .icon-box:hover {
+  background-color: #006d5f;
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.feature-boxes .icon-box:hover .title a,
+.feature-boxes .icon-box:hover .icon {
+  color: var(--barbs-light);
+}
+
+.feature-boxes .icon-box:hover i {
+  color: var(--barbs-secondary); /* Yellow icon on hover */
+}
+
+/* -----------------------------------------
+   5. Call To Action Section
+----------------------------------------- */
+.call-to-action {
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0;
+}
+
+.call-to-action img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.call-to-action .content {
+  position: relative;
+  z-index: 1;
+}
+
+.call-to-action .play-btn {
+  width: 94px;
+  height: 94px;
+  margin: 0 auto 30px auto;
+  background: radial-gradient(var(--barbs-primary) 50%, rgba(177, 32, 37, 0.4) 52%);
+  border-radius: 50%;
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.call-to-action h3 {
+  color: var(--barbs-light);
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.call-to-action p {
+  color: var(--barbs-light);
+  font-size: 18px;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.call-to-action .cta-btn {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 14px 40px;
+  border-radius: 50px;
+  transition: 0.3s;
+  color: var(--barbs-light);
+  background: var(--barbs-primary);
+  border: 2px solid var(--barbs-primary);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.call-to-action .cta-btn:hover {
+  background: transparent;
+  border-color: var(--barbs-light);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* -----------------------------------------
+   6. Stats Section
+----------------------------------------- */
+.stats {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.stats .stats-item {
+  padding: 30px;
+  width: 100%;
+  background: var(--barbs-light);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.stats .stats-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.stats .stats-item i {
+  font-size: 42px;
+  line-height: 0;
+  margin-right: 20px;
+  color: var(--barbs-primary);
+}
+
+.stats .stats-item span {
+  font-size: 36px;
+  display: block;
+  font-weight: 700;
+  color: var(--barbs-primary);
+  margin-bottom: 5px;
+}
+
+.stats .stats-item p {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.stats .stats-item p strong {
+  color: var(--barbs-dark);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.stats .stats-item p span {
+  font-size: 14px;
+  color: #777;
+  font-weight: normal;
+}
+
+@media (max-width: 992px) {
+  .stats .stats-item {
+    margin-bottom: 20px;
+  }
+}
+
+/* -----------------------------------------
+   7. About Section
+----------------------------------------- */
+.about-us-section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.about-us-section h2 {
+  color: var(--barbs-primary);
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.about-us-section h2:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--barbs-secondary);
+  bottom: 0;
+  left: calc(50% - 25px);
+}
+
+/* Section headers */
+.section-header h2:after {
+  background: var(--barbs-primary) !important; /* Red */
+}
+
+/* -----------------------------------------
+   8. Footer
+----------------------------------------- */
+.footer {
+  background-color: var(--barbs-primary);
+  color: var(--barbs-light);
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+
+.footer-top {
+  padding-bottom: 30px;
+}
+
+.footer-about .logo {
+  margin-bottom: 20px;
+}
+
+.footer-about .logo img,
+.footer-logo {
+  max-height: 60px !important;
+  width: auto !important;
+  border-radius: 50%;
+  display: block !important;
+  margin-right: 10px;
+}
+
+.footer-about .sitename {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--barbs-light);
+}
+
+.footer h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--barbs-light);
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links ul a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.footer-links ul a:hover {
+  color: var(--barbs-secondary);
+}
+
+.footer-contact p {
+  margin-bottom: 5px;
+}
+
+.footer-contact a.btn-primary {
+  background-color: transparent;
+  border: 2px solid var(--barbs-light);
+  color: var(--barbs-light);
+  padding: 8px 20px;
+  border-radius: 50px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-contact a.btn-primary:hover {
+  background-color: var(--barbs-light);
+  color: var(--barbs-primary);
+}
+
+.copyright {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.copyright p {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  margin-right: 10px;
+  color: var(--barbs-light);
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: var(--barbs-secondary);
+  color: var(--barbs-primary);
+}
+
+/* -----------------------------------------
+   9. General Button Styling
+----------------------------------------- */
+.btn-primary {
+  background-color: var(--barbs-primary);
+  border-color: var(--barbs-primary);
+  color: var(--barbs-light);
+}
+
+.btn-primary:hover {
+  background-color: #9a1c20;
+  border-color: #9a1c20;
+}
+
+.hero-cta .btn-secondary {
+  background-color: var(--barbs-light);
+  color: var(--barbs-primary);
+  border-color: var(--barbs-light);
+}
+
+.get-started-btn {
+  background-color: var(--barbs-primary) !important; /* Red */
+  color: var(--barbs-light) !important;
+  border-color: var(--barbs-primary) !important;
+  padding: 10px 25px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.get-started-btn:hover {
+  background-color: transparent !important;
+  color: var(--barbs-primary) !important;
+}

@@ -1,0 +1,56 @@
+<footer id="footer" class="footer accent-background">
+
+<div class="container footer-top">
+    <div class="row gy-4">
+    <div class="col-lg-5 col-md-12 footer-about">
+        <a href="{{ url_for('home.home') }}" class="logo d-flex align-items-center">
+          <img src="{{ url_for('static', filename='img/barbs-logo.png') }}" alt="Barb's Dog Rescue Logo" class="footer-logo me-2" style="max-height: 60px;">
+          <span class="sitename">Barb's Dog Rescue</span>
+        </a>
+        <p>Barb's Dog Rescue is a 501(c)(3) nonprofit organization dedicated to rescuing, rehabilitating, and rehoming dogs in Rocky Point, Mexico. We rely entirely on donations and volunteers to continue our mission.</p>
+        <div class="social-links d-flex mt-4">
+          <a href="https://www.facebook.com/BarbsDogRescue/" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/barbsdogrescue/" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.tiktok.com/@barbsdogrescue" target="_blank"><i class="bi bi-tiktok"></i></a>
+        </div>
+    </div>
+
+    <div class="col-lg-2 col-6 footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+        <li><a href="{{ url_for('home.home') }}">Home</a></li>
+        <li><a href="{{ url_for('adopt.adopt') }}">Adopt</a></li>
+        <li><a href="{{ url_for('donate.donate') }}">Donate</a></li>
+        <li><a href="{{ url_for('shop.shop') }}">Shop</a></li>
+        <li><a href="#about">About Us</a></li>
+        </ul>
+    </div>
+
+    <div class="col-lg-2 col-6 footer-links">
+        <h4>How To Help</h4>
+        <ul>
+        <li><a href="#">Make A Donation</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Foster A Dog</a></li>
+        <li><a href="#">Sponsor A Dog</a></li>
+        <li><a href="#">Visit The Rescue</a></li>
+        </ul>
+    </div>
+
+    <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+        <h4>Contact Us</h4>
+        <p>Rocky Point (Puerto Peñasco)</p>
+        <p>Sonora, Mexico</p>
+        <p class="mt-4"><strong>Email:</strong> <span>info@barbsdogrescue.org</span></p>
+        <a href="#" class="btn-primary mt-4">Get Directions</a>
+    </div>
+
+    </div>
+</div>
+
+<div class="container copyright text-center mt-4">
+    <p>© <span>Copyright</span> <strong class="px-1">Barb's Dog Rescue</strong> <span>All Rights Reserved</span></p>
+    <p class="mt-2">A 501(c)(3) nonprofit organization</p>
+</div>
+
+</footer>

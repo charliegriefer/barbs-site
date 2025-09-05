@@ -1,0 +1,30 @@
+/* Logo fix specific CSS - highest priority */
+.header .logo img,
+.branding .logo img {
+  max-height: 50px !important;
+  width: auto !important;
+  display: inline-block !important;
+  margin-right: 12px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Clear any potential conflicting styles */
+.header .logo::before,
+.header .logo::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Ensure logo is clickable */
+.header .logo {
+  z-index: 100 !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Fix branding container */
+.branding {
+  padding: 10px 0 !important;
+}

@@ -1,0 +1,66 @@
+{% extends "_base.html" %}
+
+{% block title %}Donate - Barb's Dog Rescue{% endblock %}
+
+{% block content %}
+<!-- Page Title -->
+<div class="breadcrumbs">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Donate</h2>
+      <ol>
+        <li><a href="{{ url_for('home.home') }}">Home</a></li>
+        <li>Donate</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- Donation Section -->
+<section class="inner-page">
+  <div class="container">
+    <div class="row gy-4 justify-content-center">
+      <div class="col-lg-6">
+        <div class="card p-4">
+          <h3 class="card-title text-center mb-4">Support Our Mission</h3>
+          <p class="card-text">
+            Your donations make a direct impact on the lives of homeless and abandoned dogs in Rocky Point. 
+            Every dollar goes towards food, medical care, shelter, and finding loving forever homes.
+          </p>
+          <p class="card-text">
+            Barb's Dog Rescue is a 501(c)(3) nonprofit organization, and all donations are tax-deductible.
+          </p>
+          <div class="text-center mt-4">
+            <a href="#" class="btn-primary">Donate Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card p-4">
+          <h3 class="card-title text-center mb-4">Other Ways to Help</h3>
+          <ul class="list-unstyled">
+            <li class="mb-3">
+              <i class="bi bi-check-circle me-2"></i> Monthly donations
+            </li>
+            <li class="mb-3">
+              <i class="bi bi-check-circle me-2"></i> Item donations (food, supplies, etc.)
+            </li>
+            <li class="mb-3">
+              <i class="bi bi-check-circle me-2"></i> Volunteer your time
+            </li>
+            <li class="mb-3">
+              <i class="bi bi-check-circle me-2"></i> Corporate sponsorships
+            </li>
+            <li class="mb-3">
+              <i class="bi bi-check-circle me-2"></i> Fundraising events
+            </li>
+          </ul>
+          <p class="card-text mt-3">
+            Contact us for more information on any of these opportunities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

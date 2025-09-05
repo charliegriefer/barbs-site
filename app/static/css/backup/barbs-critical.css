@@ -1,0 +1,37 @@
+/* Critical overrides for Barb's Dog Rescue - Highest priority */
+
+/* Topbar color - Red */
+.topbar {
+  background-color: #B12025 !important; 
+}
+
+/* Logo styling */
+.logo {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.logo img {
+  max-height: 50px !important;
+  margin-right: 10px !important;
+  display: inline-block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  width: auto !important;
+}
+
+.logo-img, .footer-logo {
+  display: block !important;
+  max-height: 50px !important;
+  margin-right: 10px !important;
+  width: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  border-radius: 50%;
+}
+
+.sitename {
+  display: inline-block !important;
+  color: #333333 !important;
+  margin: 0 !important;
+}

@@ -1,0 +1,171 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="hero" class="hero section">
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-5 justify-content-between">
+      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+        <h2>Giving hope to the <span class="accent">forgotten dogs</span> of Rocky Point</h2>
+        <p>Barb's Dog Rescue has been saving lives and finding forever homes since 2001</p>
+        <div class="d-flex">
+          <a href="{{ url_for('donate.donate') }}" class="btn-get-started">Donate Now</a>
+          <a href="#about" class="btn-watch-video d-flex align-items-center"><i class="bi bi-info-circle"></i><span>Learn More</span></a>
+        </div>
+      </div>
+      <div class="col-lg-5 order-1 order-lg-2">
+        <img src="{{ url_for('static', filename='img/barb.png') }}" class="img-fluid rounded-4" alt="Barb's Dog Rescue">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature Boxes Section -->
+<section class="feature-boxes">
+  <div class="icon-boxes position-relative">
+    <div class="container position-relative">
+      <div class="row gy-4">
+        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box">
+            <div class="icon"><i class="bi bi-heart-fill"></i></div>
+            <h4 class="title"><a href="{{ url_for('donate.donate') }}" class="stretched-link">Donate</a></h4>
+          </div>
+        </div><!--End Icon Box -->
+
+        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon-box">
+            <div class="icon"><i class="bi bi-house-heart"></i></div>
+            <h4 class="title"><a href="{{ url_for('adopt.adopt') }}" class="stretched-link">Adopt</a></h4>
+          </div>
+        </div><!--End Icon Box -->
+
+        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon-box">
+            <div class="icon"><i class="bi bi-shop"></i></div>
+            <h4 class="title"><a href="{{ url_for('shop.shop') }}" class="stretched-link">Shop</a></h4>
+          </div>
+        </div><!--End Icon Box -->
+
+        <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+          <div class="icon-box">
+            <div class="icon"><i class="bi bi-people"></i></div>
+            <h4 class="title"><a href="#about" class="stretched-link">About Us</a></h4>
+          </div>
+        </div><!--End Icon Box -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>About Barb's Dog Rescue</h2>
+    <p>A safe haven for the abandoned and neglected dogs of Puerto Peñasco</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <h3>A Lifeline for Dogs in Need</h3>
+        <img src="{{ url_for('static', filename='img/about.jpg') }}" class="img-fluid rounded-4 mb-4" alt="">
+        <p>Since 2001, Barb Mumaugh and her dedicated team have been rescuing dogs from the streets and beaches of Rocky Point, Mexico. What started as helping a few strays has grown into a full-scale rescue operation that has saved thousands of dogs.</p>
+        <p>Our shelter provides food, medical care, and rehabilitation to dogs that have been abandoned, injured, or born on the streets, giving them a second chance at life and love.</p>
+      </div>
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
+        <div class="content ps-0 ps-lg-5">
+          <p class="fst-italic">
+            At Barb's Dog Rescue, we're committed to:
+          </p>
+          <ul>
+            <li><i class="bi bi-check-circle-fill"></i> <span>Rescuing and rehabilitating dogs in desperate situations</span></li>
+            <li><i class="bi bi-check-circle-fill"></i> <span>Providing spay/neuter services to reduce the stray population</span></li>
+            <li><i class="bi bi-check-circle-fill"></i> <span>Finding loving forever homes through our adoption program</span></li>
+            <li><i class="bi bi-check-circle-fill"></i> <span>Educating the community about responsible pet ownership</span></li>
+          </ul>
+          <p>
+            We operate entirely on donations and rely on the generosity of supporters like you to continue our life-saving work.
+          </p>
+
+          <div class="position-relative mt-4">
+            <img src="{{ url_for('static', filename='img/about-2.jpg') }}" class="img-fluid rounded-4" alt="">
+            <a href="#" class="glightbox pulsating-play-btn"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call To Action Section -->
+<section id="call-to-action" class="call-to-action section dark-background">
+  <div class="container">
+    <img src="{{ url_for('static', filename='img/cta-bg.jpg') }}" alt="">
+    <div class="content row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+      <div class="col-xl-10">
+        <div class="text-center">
+          <a href="#" class="glightbox play-btn"></a>
+          <h3>They Need Your Help Today</h3>
+          <p>Every donation makes a difference in the life of a dog in need. Your support provides food, shelter, medical care, and the chance for a better life. Join us in our mission to rescue, rehabilitate, and rehome the forgotten dogs of Rocky Point.</p>
+          <a class="cta-btn" href="{{ url_for('donate.donate') }}">Make a Donation</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section id="stats" class="stats section">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4 align-items-center">
+      <div class="col-lg-5">
+        <img src="{{ url_for('static', filename='img/stats-img.svg') }}" alt="" class="img-fluid">
+      </div>
+      <div class="col-lg-7">
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="stats-item d-flex">
+              <i class="bi bi-house-heart flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="8500" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>Dogs Rescued</strong> <span>since 2001</span></p>
+              </div>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-6">
+            <div class="stats-item d-flex">
+              <i class="bi bi-heart-fill flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="6200" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>Dogs Adopted</strong> <span>into loving homes</span></p>
+              </div>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-6">
+            <div class="stats-item d-flex">
+              <i class="bi bi-bandaid flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="5300" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>Spay/Neuter</strong> <span>procedures performed</span></p>
+              </div>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-6">
+            <div class="stats-item d-flex">
+              <i class="bi bi-people flex-shrink-0"></i>
+              <div>
+                <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
+                <p><strong>Volunteers</strong> <span>who make it possible</span></p>
+              </div>
+            </div>
+          </div><!-- End Stats Item -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

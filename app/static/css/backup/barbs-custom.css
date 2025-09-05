@@ -1,0 +1,124 @@
+/* Barb's Dog Rescue Custom CSS - Minimal branding */
+
+:root {
+  /* Core brand colors from logo */
+  --barbs-primary: #B12025;     /* Burgundy/red from logo */
+  --barbs-secondary: #F9CD2A;   /* Yellow from logo/dog */
+  --barbs-light: #FFFFFF;
+  --barbs-dark: #333333;
+}
+
+/* Add custom styling here - keeping it minimal to maintain the Impact theme's look */
+/* Logo styling */
+.logo {
+  display: flex !important;
+  align-items: center !important;
+  padding: 10px 0;
+}
+
+.logo-img {
+  max-height: 50px;
+  width: auto;
+  margin-right: 12px;
+}
+
+/* Header styling */
+.header {
+  background-color: var(--barbs-secondary);
+}
+
+.topbar {
+  background-color: var(--barbs-primary); /* Changed to red */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.branding {
+  background-color: var(--barbs-secondary);
+}
+
+/* Navigation styling */
+.navmenu ul li a {
+  color: var(--barbs-dark) !important;
+}
+
+.navmenu ul li a:hover,
+.navmenu .active {
+  color: var(--barbs-primary) !important;
+}
+
+.logo .sitename {
+  color: var(--barbs-light);
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: var(--barbs-primary);
+  border-color: var(--barbs-primary);
+  color: var(--barbs-light);
+}
+
+.btn-primary:hover {
+  background-color: #9a1c20;
+  border-color: #9a1c20;
+}
+
+.hero-cta .btn-secondary {
+  background-color: var(--barbs-light);
+  color: var(--barbs-primary);
+  border-color: var(--barbs-light);
+}
+
+/* Hero section */
+.hero {
+  background-color: var(--barbs-secondary);
+  color: var(--barbs-dark);
+}
+
+/* Section styling */
+.section-header h2:after {
+  background: var(--barbs-secondary);
+}
+
+.custom-icon-box .icon {
+  color: var(--barbs-secondary);
+}
+
+/* Footer styling */
+.footer {
+  background-color: var(--barbs-primary);
+  color: var(--barbs-light);
+}
+
+.footer a {
+  color: var(--barbs-light);
+}
+
+.footer .footer-contact h3 span,
+.footer-about .sitename {
+  color: var(--barbs-light);
+  font-weight: 600;
+}
+
+.footer-logo {
+  max-height: 60px !important;
+  width: auto !important;
+  border-radius: 50%;
+  display: block !important;
+}
+
+/* Contact info in topbar */
+.topbar .contact-info i,
+.topbar .contact-info a {
+  color: var(--barbs-light);
+}
+
+/* Fix top bar social links */
+.topbar .social-links a {
+  color: var(--barbs-light);
+}
+
+/* Social links */
+.social-links a {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--barbs-light);
+}

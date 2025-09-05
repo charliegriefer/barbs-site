@@ -1,0 +1,21 @@
+{
+    "name": "Barb's Dog Rescue",
+    "short_name": "Barb's",
+    "icons": [
+        {
+            "src": "/static/img/barbs-favicon.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/static/img/barbs-logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ],
+    "theme_color": "#B12025",
+    "background_color": "#F9CD2A",
+    "display": "standalone"
+}

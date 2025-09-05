@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Environments
+venv/
+.env
+
+# VSCode
+.vscode/
+
+# Flask cache / debug files
+instance/
+*.log
+
+# OS files
+.DS_Store

@@ -1,0 +1,63 @@
+/* Override CSS for Barb's Dog Rescue - Higher priority */
+
+/* Top bar - red */
+.topbar {
+  background-color: #B12025 !important; /* Red */
+  color: white !important;
+}
+
+/* Main section - yellow */
+.hero {
+  background-color: #F9CD2A !important; /* Yellow */
+  color: #333 !important;
+}
+
+.branding {
+  background-color: #F9CD2A !important; /* Yellow */
+}
+
+/* Feature boxes - teal green */
+.feature-boxes {
+  background-color: #008B79 !important; /* Teal green */
+}
+
+.feature-boxes .icon-box i,
+.feature-boxes h3 {
+  color: white !important;
+}
+
+/* Text colors for navigation */
+.navmenu ul li a {
+  color: #333 !important; /* Dark text for yellow background */
+}
+
+.navmenu ul li a:hover, 
+.navmenu ul li a.active {
+  color: #B12025 !important; /* Red hover */
+}
+
+/* Make sure all top bar elements are white */
+.topbar .contact-info i,
+.topbar .contact-info a,
+.topbar .contact-info span,
+.topbar .social-links a,
+.topbar .social-links i {
+  color: white !important;
+}
+
+/* Ensure header is yellow */
+header#header .branding {
+  background-color: #F9CD2A !important; /* Yellow */
+}
+
+/* Button styling */
+.get-started-btn {
+  background-color: #B12025 !important; /* Red */
+  color: white !important;
+  border-color: #B12025 !important;
+}
+
+/* Fix any other possible color issues */
+.section-header h2:after {
+  background: #B12025 !important; /* Red */
+}
