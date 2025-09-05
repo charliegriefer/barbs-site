@@ -22,16 +22,38 @@
         <h1 class="sitename">Barb's Dog Rescue</h1>
     </a>
 
+    {% set nav_items = [
+        ("Home",   "home.home"),
+        ("Donate", "donate.donate"),
+        ("Shop",   "shop.shop"),
+        ("Adopt",  "adopt.adopt"),
+        ("About",  "#about"),
+        ("Contact", "#contact")
+    ] %}
+
+    {% set current_endpoint = request.endpoint %}
     <nav id="navmenu" class="navmenu">
-        <ul>
-        <li><a href="{{ url_for('home.home') }}" class="active">Home</a></li>
-        <li><a href="{{ url_for('donate.donate') }}">Donate</a></li>
-        <li><a href="{{ url_for('shop.shop') }}">Shop</a></li>
-        <li><a href="{{ url_for('adopt.adopt') }}">Adopt</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    <ul>
+        {% for label, target in nav_items %}
+        {% if target.startswith('#') %}
+            {# Anchor links handled by request.path comparison if you want #}
+            <li>
+            <a href="{{ target }}"
+                class="{{ 'active' if request.path == '/' + target else '' }}">
+                {{ label }}
+            </a>
+            </li>
+        {% else %}
+            <li>
+            <a href="{{ url_for(target) }}"
+                class="{{ 'active' if current_endpoint == target else '' }}">
+                {{ label }}
+            </a>
+            </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
 
     </div>

@@ -3,64 +3,219 @@
 {% block title %}Donate - Barb's Dog Rescue{% endblock %}
 
 {% block content %}
-<!-- Page Title -->
-<div class="breadcrumbs">
-  <div class="container">
-    <div class="d-flex justify-content-between align-items-center">
-      <h2>Donate</h2>
-      <ol>
-        <li><a href="{{ url_for('home.home') }}">Home</a></li>
-        <li>Donate</li>
-      </ol>
-    </div>
-  </div>
-</div>
-
-<!-- Donation Section -->
-<section class="inner-page">
-  <div class="container">
-    <div class="row gy-4 justify-content-center">
+<!-- Hero Section -->
+<section id="donate-hero" class="donate-hero section bg-light-subtle">
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-5 justify-content-between align-items-center mt-5">
       <div class="col-lg-6">
-        <div class="card p-4">
-          <h3 class="card-title text-center mb-4">Support Our Mission</h3>
-          <p class="card-text">
-            Your donations make a direct impact on the lives of homeless and abandoned dogs in Rocky Point. 
-            Every dollar goes towards food, medical care, shelter, and finding loving forever homes.
-          </p>
-          <p class="card-text">
-            Barb's Dog Rescue is a 501(c)(3) nonprofit organization, and all donations are tax-deductible.
-          </p>
-          <div class="text-center mt-4">
-            <a href="#" class="btn-primary">Donate Now</a>
-          </div>
+        <h1>DONATE</h1>
+        <h2>Help us continue our life saving mission in Puerto Peñasco!</h2>
+        <p class="fs-5">Your donation provides food, shelter, medical care, and the chance for a better life for dogs in need. Join us in our mission to rescue, rehabilitate, and rehome the forgotten dogs of Rocky Point.</p>
+        <div class="mt-4 d-flex gap-3 flex-wrap">
+          <a href="#one-time" class="btn btn-danger">Donate Now</a>
+          <a href="#recurring" class="btn btn-outline-primary">Become a Monthly Supporter</a>
         </div>
       </div>
-      <div class="col-lg-6">
-        <div class="card p-4">
-          <h3 class="card-title text-center mb-4">Other Ways to Help</h3>
-          <ul class="list-unstyled">
-            <li class="mb-3">
-              <i class="bi bi-check-circle me-2"></i> Monthly donations
-            </li>
-            <li class="mb-3">
-              <i class="bi bi-check-circle me-2"></i> Item donations (food, supplies, etc.)
-            </li>
-            <li class="mb-3">
-              <i class="bi bi-check-circle me-2"></i> Volunteer your time
-            </li>
-            <li class="mb-3">
-              <i class="bi bi-check-circle me-2"></i> Corporate sponsorships
-            </li>
-            <li class="mb-3">
-              <i class="bi bi-check-circle me-2"></i> Fundraising events
-            </li>
-          </ul>
-          <p class="card-text mt-3">
-            Contact us for more information on any of these opportunities.
-          </p>
+      <div class="col-lg-5">
+        <img src="{{ url_for('static', filename='img/about.jpg') }}" class="img-fluid rounded-4 shadow" style="object-fit: cover; height: 100%; width: 100%;" alt="Dogs at Barb's Dog Rescue">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Navigation -->
+<section class="donation-nav py-3 bg-light">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-12">
+        <p class="mb-2 fw-bold">Jump to:</p>
+        <div class="donation-links d-flex flex-wrap justify-content-center gap-2">
+          <a href="#one-time" class="btn btn-sm btn-outline-primary">One-Time Donation</a>
+          <a href="#recurring" class="btn btn-sm btn-outline-primary">Monthly Support</a>
+          <a href="#ira" class="btn btn-sm btn-outline-primary">IRA Gifts</a>
+          <a href="#legacy" class="btn btn-sm btn-outline-primary">Legacy Giving</a>
+          <a href="#mail" class="btn btn-sm btn-outline-primary">Mail-In Donations</a>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- One-Time Donation Section -->
+<section id="one-time" class="donation-section section bg-white py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">One-Time Donation</h2>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <p class="mb-4">Every donation makes a difference in the life of a dog in need. Your support provides food, shelter, medical care, and the chance for a better life.</p>
+        <div class="donation-amounts mb-4">
+          <div class="row g-2">
+            <div class="col-md-4 col-6 mb-2">
+              <a href="#" class="btn btn-outline-primary w-100 py-2">$25</a>
+            </div>
+            <div class="col-md-4 col-6 mb-2">
+              <a href="#" class="btn btn-outline-primary w-100 py-2">$50</a>
+            </div>
+            <div class="col-md-4 col-6 mb-2">
+              <a href="#" class="btn btn-outline-primary w-100 py-2">$100</a>
+            </div>
+            <div class="col-md-4 col-6 mb-2">
+              <a href="#" class="btn btn-outline-primary w-100 py-2">$250</a>
+            </div>
+            <div class="col-md-4 col-6 mb-2">
+              <a href="#" class="btn btn-outline-primary w-100 py-2">$500</a>
+            </div>
+            <div class="col-md-4 col-6 mb-2">
+              <a href="#" class="btn btn-outline-primary w-100 py-2">Other</a>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="#" class="btn btn-danger py-2 px-4">
+            Donate via Credit Card
+          </a>
+          <a href="#" class="btn btn-outline-primary py-2 px-4">
+            <i class="bi bi-paypal me-2"></i>Donate via PayPal
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="mt-4 mt-lg-0">
+          <img src="{{ url_for('static', filename='img/about-2.jpg') }}" class="img-fluid rounded-4" alt="Barb's Dog Rescue dog">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recurring Donation Section -->
+<section id="recurring" class="donation-section section bg-light py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 order-lg-2">
+        <h2 class="section-title">Helping Paws Recurring Donation</h2>
+        <p>Your automatic monthly or quarterly donation provides Barb's Dog Rescue with continuous and reliable resources – and helps us plan our monthly budgets.</p>
+        <div class="donation-info-card mb-4">
+          <h5 class="text-primary mb-3"><i class="bi bi-check-circle-fill me-2"></i>Benefits of recurring donations:</h5>
+          <ul class="mb-0">
+            <li>Provides steady, reliable funding for ongoing care</li>
+            <li>Helps us plan food and medical supplies purchasing</li>
+            <li>Reduces administrative costs so more goes directly to the dogs</li>
+            <li>Automatic processing - set it and forget it!</li>
+          </ul>
+        </div>
+        <p>You'll receive an email confirmation after each donation is processed.</p>
+        <div class="mt-4 d-flex flex-wrap gap-3">
+          <a href="#" class="btn btn-danger">
+            <i class="bi bi-credit-card-2-front me-2"></i>Set up a Recurring Credit Card Donation
+          </a>
+          <a href="#" class="btn btn-outline-primary">
+            <i class="bi bi-paypal me-2"></i>Set up a Recurring PayPal Donation
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div>
+          <img src="{{ url_for('static', filename='img/about.jpg') }}" class="img-fluid rounded-4" alt="Dogs at Barb's Dog Rescue">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IRA Donation Section -->
+<section id="ira" class="donation-section section bg-danger-subtle py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h2 class="section-title mb-4">Make an IRA Gift!</h2>
+        <div class="row align-items-center">
+          <div class="col-md-1 text-end">
+            <i class="bi bi-paw-fill text-primary fs-1"></i>
+          </div>
+          <div class="col-md-10">
+            <p class="mb-4">If you are 70½ or older, you can make a qualified charitable distribution (QCD) from your IRA to support Barb's Dog Rescue. A QCD is a tax-free donation, and if you are 73 or older, it counts toward your required minimum distribution for the year.</p>
+          </div>
+          <div class="col-md-1 text-start">
+            <i class="bi bi-paw-fill text-primary fs-1"></i>
+          </div>
+        </div>
+        
+        <p class="mb-4">Please provide your plan administrator with the following information to make a qualified charitable distribution from your IRA:</p>
+        
+        <div class="donation-info-card mb-4 mx-auto" style="max-width: 600px;">
+          <p class="mb-2"><strong>Legal Name:</strong> Barbs Dog Rescue</p>
+          <p class="mb-2"><strong>United States Federal Tax ID:</strong> 46-3948346</p>
+          <p class="mb-0"><strong>BDR is a registered 501(c)3</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Legacy Giving Section -->
+<section id="legacy" class="donation-section section py-5 text-white" style="background-image: url('{{ url_for('static', filename='img/cta-bg.jpg') }}'); background-size: cover; position: relative;">
+  <div class="legacy-section-overlay"></div>
+  <div class="container position-relative">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2 class="section-title text-white">Leave a Legacy</h2>
+        <h3 class="mb-4">Include Barb's Dog Rescue in your estate plans to help ensure the future of our shelter for many years to come.</h3>
+        
+        <div class="donation-info-card text-dark">
+          <p>It's easy to include Barb's Dog Rescue in your will or trust, or as a beneficiary of your retirement plan, life insurance policy, or bank account. For more information, <a href="{{ url_for('home.home') }}#contact">contact us</a>. We're here to help.</p>
+          
+          <div class="text-center my-3">
+            <h4 class="text-danger">Make a big impact on dogs in need with your future gift.</h4>
+          </div>
+          
+          <p class="fw-bold text-center mb-0">Include Barb's Dog Rescue in your estate plans.</p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <img src="{{ url_for('static', filename='img/about-2.jpg') }}" class="img-fluid rounded-4" alt="Barb's Dog Rescue dog" style="max-height: 400px; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mail-In Donation Section -->
+<section id="mail" class="donation-section section bg-light-subtle py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="section-title">Donations can be mailed to:</h2>
+        <div class="donation-info-card mb-4 mx-auto" style="max-width: 400px;">
+          <p class="mb-2">Barb's Dog Rescue</p>
+          <p class="mb-2">PO Box 215</p>
+          <p class="mb-2">Lukeville, AZ</p>
+          <p class="mb-0">85341</p>
+        </div>
+        <p class="mb-4">Please make checks payable to "Barb's Dog Rescue"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tax Information -->
+<section class="tax-info-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <p class="mb-0"><strong>Barb's Dog Rescue is a 501(c)(3) nonprofit organization, dedicated to helping homeless dogs in Puerto Peñasco, Mexico.</strong></p>
+        <p class="mb-0"><strong>AZ tax ID# 46-3948346</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<!-- All donation styling is now in barbs.css -->
 {% endblock %}
