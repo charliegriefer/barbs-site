@@ -2241,7 +2241,8 @@ section,
 # Starter Section Section
 --------------------------------------------------------------*/
 .starter-section {
-  /* Add your styles here */
+  display: block;  /* Minimal property that won't affect layout */
+  position: relative;  /* Another safe property */
 }
 
 /*--------------------------------------------------------------

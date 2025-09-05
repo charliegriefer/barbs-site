@@ -9,8 +9,8 @@
   <link href="{{ url_for('static', filename='img/barbs-favicon.png') }}" rel="icon" type="image/png">
   <link href="{{ url_for('static', filename='img/barbs-logo.png') }}" rel="apple-touch-icon">
   <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
-  <meta name="theme-color" content="#B12025">
-  <meta name="msapplication-TileColor" content="#B12025">
+  <meta name="theme-color" content="#4A4E69">
+  <meta name="msapplication-TileColor" content="#4A4E69">
   <meta name="msapplication-TileImage" content="{{ url_for('static', filename='img/barbs-logo.png') }}">
 
   <!-- Fonts -->
@@ -28,22 +28,12 @@
   <!-- Main CSS File -->
   <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
   
-  <!-- Combined Barb's CSS - All custom styles in one file -->
+  <!-- Barb's CSS -->
   <link href="{{ url_for('static', filename='css/barbs.css') }}?v=1.0" rel="stylesheet">
 </head>
 
 <body class="index-page">
-  <style>
-    /* Critical overrides that must be applied */
-    .topbar { background-color: #B12025 !important; } /* Changed to red */
-    .branding { background-color: #F9CD2A !important; }
-    .hero { background-color: #F9CD2A !important; }
-    .feature-boxes { background-color: #008B79 !important; }
-    .topbar .contact-info i, .topbar .contact-info a, .topbar .social-links a { color: white !important; }
-    .navmenu ul li a { color: #333 !important; }
-    /* Logo styling */
-    .logo-img, .footer-logo { display: inline-block !important; max-height: 50px !important; width: auto !important; border-radius: 50%; }
-  </style>
+  
 
   {% block header %}
     {% include "partials/navbar.html" %}
