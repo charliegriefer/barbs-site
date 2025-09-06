@@ -5,7 +5,7 @@
 <section id="hero" class="hero section">
   <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
     <div class="row gy-5 justify-content-between">
-      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+      <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
         <h2>Giving hope to the <span class="accent">forgotten dogs</span> of Rocky Point</h2>
         <p>Barb's Dog Rescue has been saving lives and finding forever homes since 2001</p>
         <div class="d-flex">
@@ -13,8 +13,19 @@
           <a href="#about" class="btn-watch-video d-flex align-items-center"><i class="bi bi-info-circle"></i><span>Learn More</span></a>
         </div>
       </div>
-      <div class="col-lg-5 order-1 order-lg-2">
-        <img src="{{ url_for('static', filename='img/barb.png') }}" class="img-fluid rounded-4" alt="Barb's Dog Rescue">
+      <div class="col-lg-7 order-1 order-lg-2">
+        {# <img src="{{ url_for('static', filename='img/barb.png') }}" class="img-fluid rounded-4" alt="Barb's Dog Rescue"> #}
+        <!-- home.html -->
+        <div class="ratio ratio-16x9 mb-3" style="margin: auto;">
+          <video
+            class="w-100 rounded"
+            controls
+            preload="metadata"
+            poster="{{ url_for('static', filename='video/barbs-poster.png') }}">
+            <source src="{{ url_for('static', filename='video/barbs.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
     </div>
   </div>
