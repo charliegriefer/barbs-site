@@ -75,6 +75,10 @@
 }
 
 /* Navigation styling - completely overriding theme defaults */
+.mobile-nav-toggle {
+  color: var(--barbs-dark) !important;
+}
+
 .navmenu ul li a {
   position: relative;
   color: var(--barbs-dark) !important;
