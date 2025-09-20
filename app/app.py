@@ -1,21 +1,12 @@
-from flask import Flask
+# This file is kept for compatibility, but the main application
+# is now configured in app/__init__.py to follow Flask conventions.
+# For new code, please reference app directly from __init__.py
 
-from app.blueprints.adopt import adopt_bp
-from app.blueprints.donate import donate_bp
-from app.blueprints.home import home_bp
-from app.blueprints.shop import shop_bp
+from app import app  # noqa: F401
 
+# This ensures the app is available when 'from app.app import app' is used
+# in your project, maintaining backward compatibility
 
-def create_app():
-    app = Flask(__name__)
-
-    # Register blueprints
-    app.register_blueprint(home_bp)
-    app.register_blueprint(donate_bp)
-    app.register_blueprint(shop_bp)
-    app.register_blueprint(adopt_bp)
-
-    return app
-
-
-app = create_app()
+# Entry point for running the application directly
+if __name__ == "__main__":
+    app.run(debug=True)

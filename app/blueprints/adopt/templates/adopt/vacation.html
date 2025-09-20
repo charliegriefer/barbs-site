@@ -1,0 +1,142 @@
+{% extends "_base.html" %}
+
+{% block title %}Pawsome Getaways - Barb's Dog Rescue{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="vacation-hero" class="section bg-light-subtle">
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-5 justify-content-between align-items-center mt-5">
+      <div class="col-lg-6">
+        <h1>Take a shelter dog on a Pawsome Getaway!</h1>
+        <div class="mb-4">
+          <img src="{{ url_for('static', filename='img/pawsome-getaways-logo.png') }}" alt="Pawsome Getaways Logo" class="img-fluid" style="max-width: 250px;">
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <img src="{{ url_for('static', filename='img/portfolio/product-1.jpg') }}" class="img-fluid rounded-4 shadow" alt="Dog on vacation">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vacation with a Purpose Section -->
+<section id="purpose" class="section bg-white py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">Vacation with a Purpose</h2>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <p class="mb-4">Visiting Puerto Peñasco? Take a shelter dog from Barb's Dog Rescue on vacation with you!</p>
+        <p>You'll enjoy the company of a four-legged friend and give a dog a break from shelter life, and the shelter pup is sure to make things fun! At the end of your vacation, you simply return the dog to the shelter.</p>
+        <p>If you fall in love and wish to adopt the dog, you will have the option to do so, but there is no pressure to keep the dog. Our goal is to help our dogs get more socialized and enjoy new experiences, and give them a break from the shelter.</p>
+        <div class="mt-4">
+          <a href="mailto:barbsdogrescue@gmail.com" class="btn btn-danger">Contact Us to Arrange</a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="mt-4 mt-lg-0">
+          <img src="{{ url_for('static', filename='img/portfolio/product-2.jpg') }}" class="img-fluid rounded-4" alt="Dog at beach">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="how-it-works" class="section bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">How It Works</h2>
+      </div>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 p-4 shadow-sm">
+          <div class="text-center mb-3">
+            <div class="rounded-circle bg-primary text-white d-inline-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
+              <span class="fs-4">1</span>
+            </div>
+          </div>
+          <div class="card-body text-center">
+            <h4 class="card-title mb-3">Choose Your Companion</h4>
+            <p class="card-text">Select a dog that matches your vacation style, or let our staff suggest the perfect match.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card h-100 border-0 p-4 shadow-sm">
+          <div class="text-center mb-3">
+            <div class="rounded-circle bg-primary text-white d-inline-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
+              <span class="fs-4">2</span>
+            </div>
+          </div>
+          <div class="card-body text-center">
+            <h4 class="card-title mb-3">Enjoy Your Getaway</h4>
+            <p class="card-text">Take your furry friend on adventures, to the beach, or just relax together.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card h-100 border-0 p-4 shadow-sm">
+          <div class="text-center mb-3">
+            <div class="rounded-circle bg-primary text-white d-inline-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
+              <span class="fs-4">3</span>
+            </div>
+          </div>
+          <div class="card-body text-center">
+            <h4 class="card-title mb-3">Return or Adopt</h4>
+            <p class="card-text">Bring your companion back to the shelter, or start the adoption process if you've formed a bond.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pawsome Memories Section -->
+<section id="memories" class="section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Pawsome Memories</h2>
+        <p class="lead mb-5">See the joy these getaways bring to both dogs and humans</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="gallery-item position-relative">
+          <img src="{{ url_for('static', filename='img/portfolio/product-2.jpg') }}" class="img-fluid rounded-4 shadow-sm" alt="Dog and Person on Beach">
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="gallery-item position-relative">
+          <img src="{{ url_for('static', filename='img/portfolio/product-3.jpg') }}" class="img-fluid rounded-4 shadow-sm" alt="Dog in Car">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Call to Action -->
+<section id="contact-cta" class="section bg-light-subtle py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="section-title">Ready for a Pawsome Adventure?</h2>
+        <p class="lead mb-4">To sign up, contact us at <a href="mailto:barbsdogrescue@gmail.com">barbsdogrescue@gmail.com</a></p>
+        <p class="mb-4">You can choose the dog you'd like to join you on your getaway, or our staff can suggest a dog for you.</p>
+        <div class="mt-4">
+          <a href="mailto:barbsdogrescue@gmail.com" class="btn btn-danger btn-lg px-4 py-2">Contact Us Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

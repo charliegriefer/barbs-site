@@ -1,6 +1,6 @@
 from flask import render_template
 
-from app.blueprints.donate import donate_bp
+from . import donate_bp
 
 
 @donate_bp.route("/donate")

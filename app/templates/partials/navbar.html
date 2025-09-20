@@ -24,33 +24,67 @@
 
     {% set nav_items = [
         ("Home",   "home.home"),
+        ("About",  "#about"),
         ("Donate", "donate.donate"),
         ("Shop",   "shop.shop"),
-        ("Adopt",  "adopt.adopt"),
-        ("About",  "#about"),
+        ("Volunteer", "volunteer.volunteer"),
         ("Contact", "#contact")
     ] %}
 
+    {# Define where to place the Adopt dropdown - after Shop #}
+    {% set adopt_position = 4 %}
     {% set current_endpoint = request.endpoint %}
     <nav id="navmenu" class="navmenu">
     <ul>
-        {% for label, target in nav_items %}
-        {% if target.startswith('#') %}
-            {# Anchor links handled by request.path comparison if you want #}
-            <li>
-            <a href="{{ target }}"
-                class="{{ 'active' if request.path == '/' + target else '' }}">
-                {{ label }}
-            </a>
-            </li>
-        {% else %}
-            <li>
-            <a href="{{ url_for(target) }}"
-                class="{{ 'active' if current_endpoint == target else '' }}">
-                {{ label }}
-            </a>
-            </li>
-        {% endif %}
+        {% for index in range(nav_items|length) %}
+            {# Insert Adopt dropdown at the specified position #}
+            {% if index == adopt_position %}
+                {# Special handling for Adopt dropdown #}
+                <li class="dropdown">
+                    <a href="#" class="{{ 'active' if current_endpoint and current_endpoint.startswith('adopt.') else '' }}">
+                        <span>Adopt</span> <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{{ url_for('adopt.adopt') }}" 
+                               class="{{ 'active' if current_endpoint == 'adopt.adopt' else '' }}">
+                                Available Dogs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('adopt.vacation') }}"
+                               class="{{ 'active' if current_endpoint == 'adopt.vacation' else '' }}">
+                                Take a BDR Dog on Vacation
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('adopt.adoption_events') }}"
+                               class="{{ 'active' if current_endpoint == 'adopt.adoption_events' else '' }}">
+                                Adoption Events
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            {% endif %}
+            
+            {# Display regular nav item #}
+            {% set label, target = nav_items[index] %}
+            {% if target.startswith('#') %}
+                {# Anchor links handled by request.path comparison if you want #}
+                <li>
+                <a href="{{ target }}"
+                    class="{{ 'active' if request.path == '/' + target else '' }}">
+                    {{ label }}
+                </a>
+                </li>
+            {% else %}
+                <li>
+                <a href="{{ url_for(target) }}"
+                    class="{{ 'active' if current_endpoint == target else '' }}">
+                    {{ label }}
+                </a>
+                </li>
+            {% endif %}
         {% endfor %}
     </ul>
     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

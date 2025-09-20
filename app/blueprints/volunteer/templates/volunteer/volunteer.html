@@ -1,0 +1,163 @@
+{% extends "_base.html" %}
+
+{% block title %}Volunteer - Barb's Dog Rescue{% endblock %}
+
+{% block content %}
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+    <div class="row justify-content-center">
+      <div class="col-xl-7 col-lg-9 text-center">
+        <h1>Volunteer With Us</h1>
+        <h2>Make a difference in the lives of dogs in need</h2>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="#volunteer-info" class="btn-get-started scrollto">Get Started</a>
+    </div>
+  </div>
+</section><!-- End Hero -->
+
+<main id="main">
+  <!-- ======= Volunteer Info Section ======= -->
+  <section id="volunteer-info" class="volunteer-info">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Volunteer</h2>
+        <p>How You Can Help</p>
+      </div>
+
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            Volunteers are the heart of our operation at Barb's Dog Rescue. Whether you live locally or are visiting Rocky Point, there are many ways you can help make a difference:
+          </p>
+          <ul>
+            <li><i class="ri-check-double-line"></i> Walk dogs and provide much-needed socialization</li>
+            <li><i class="ri-check-double-line"></i> Help with feeding, cleaning, and basic care</li>
+            <li><i class="ri-check-double-line"></i> Assist with adoption events and fundraisers</li>
+            <li><i class="ri-check-double-line"></i> Transport dogs to vet appointments or adoption events</li>
+            <li><i class="ri-check-double-line"></i> Help with administrative tasks and social media</li>
+          </ul>
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            No experience is necessary! We'll train you in all aspects of dog care and rescue operations. Whether you can volunteer for a few hours, a day, or on a regular schedule, we welcome your help and support.
+          </p>
+          <p>
+            If you're visiting Rocky Point, spending time at the rescue can be a rewarding part of your vacation. Many of our regular volunteers started as visitors who fell in love with our mission.
+          </p>
+          <a href="#volunteer-form" class="btn-learn-more scrollto">Sign Up Today</a>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Volunteer Info Section -->
+
+  <!-- ======= Volunteer Form Section ======= -->
+  <section id="volunteer-form" class="volunteer-form section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Volunteer</h2>
+        <p>Join Our Team</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+          <img src="{{ url_for('static', filename='img/team/team-2.jpg') }}" class="img-fluid" alt="Volunteer with dogs">
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+          <form action="#" method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone Number">
+            </div>
+            <div class="form-group mt-3">
+              <select name="availability" id="availability" class="form-control" required>
+                <option value="" disabled selected>Availability</option>
+                <option value="one-time">One-time Visit</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="flexible">Flexible</option>
+              </select>
+            </div>
+            <div class="form-group mt-3">
+              <textarea class="form-control" name="message" rows="5" placeholder="Tell us about yourself and how you'd like to help" required></textarea>
+            </div>
+            <div class="my-3">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+            </div>
+            <div class="text-center"><button type="submit">Submit</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Volunteer Form Section -->
+
+  <!-- ======= Volunteer FAQ Section ======= -->
+  <section id="volunteer-faq" class="volunteer-faq">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>FAQ</h2>
+        <p>Volunteer Questions</p>
+      </div>
+
+      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-5">
+          <i class="ri-question-line"></i>
+          <h4>Do I need to speak Spanish to volunteer?</h4>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            No, while some Spanish is helpful, it's not required. Many of our staff members speak English, and we have bilingual volunteers who can assist with translation when needed.
+          </p>
+        </div>
+      </div><!-- End F.A.Q Item-->
+
+      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-5">
+          <i class="ri-question-line"></i>
+          <h4>Can I volunteer if I'm only visiting Rocky Point for a short time?</h4>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            Absolutely! Many of our volunteers are visitors who spend a few hours or days helping during their vacation. Even a short visit makes a big difference to our dogs.
+          </p>
+        </div>
+      </div><!-- End F.A.Q Item-->
+
+      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+        <div class="col-lg-5">
+          <i class="ri-question-line"></i>
+          <h4>Is there a minimum age requirement for volunteers?</h4>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            Volunteers under 18 must be accompanied by an adult. Children as young as 8 can volunteer with parental supervision, helping with tasks appropriate to their age and abilities.
+          </p>
+        </div>
+      </div><!-- End F.A.Q Item-->
+
+      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+        <div class="col-lg-5">
+          <i class="ri-question-line"></i>
+          <h4>What should I wear when volunteering?</h4>
+        </div>
+        <div class="col-lg-7">
+          <p>
+            Wear comfortable clothes that you don't mind getting dirty. Closed-toe shoes are required. We recommend bringing a hat, sunscreen, and water bottle, especially during hot months.
+          </p>
+        </div>
+      </div><!-- End F.A.Q Item-->
+    </div>
+  </section><!-- End Volunteer FAQ Section -->
+</main><!-- End #main -->
+{% endblock %}
