@@ -849,3 +849,38 @@ li i.bi-check-circle-fill,
   margin-bottom: 0;
   font-weight: 600;
 }
+
+/* -----------------------------------------
+   11. Dog Adoption Styles 
+----------------------------------------- */
+
+/* Dog search result card styling */
+.dog_search_result {
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dog_search_result:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dog_search_result img {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.dog_search_result a:hover {
+  text-decoration: none;
+}
+
+/* Gender icons styling */
+.gender_male {
+  color: #01a6ea;
+}
+
+.gender_female {
+  color: #ffb1cb;
+}

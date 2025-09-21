@@ -1,8 +1,23 @@
+import os
+
+from dotenv import load_dotenv
 from flask import Flask
+
+from app.extensions import cache
+
+# Load environment variables from .env file
+load_dotenv()
 
 
 def create_app():
     app = Flask(__name__)
+
+    # Load configuration
+    app.config.from_object("config")
+    app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-key-for-testing")
+
+    # Initialize extensions
+    cache.init_app(app, config={"CACHE_TYPE": "SimpleCache"})
 
     # Import blueprints
     from app.blueprints.adopt.routes import adopt_bp

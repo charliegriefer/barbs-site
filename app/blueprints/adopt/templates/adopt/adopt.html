@@ -1,113 +1,366 @@
 {% extends "_base.html" %}
 
+{# Define variables needed for pagination #}
+{% set min = ((current_page - 1) * per_page) + 1 %}
+{% set max = min + per_page - 1 %}
+{% if max > total_dogs %}{% set max = total_dogs %}{% endif %}
+{% set total_pages = number_of_pages %}
+
 {% block title %}Adopt - Barb's Dog Rescue{% endblock %}
 
 {% block content %}
-<!-- Page Title -->
-<div class="breadcrumbs">
-  <div class="container">
-    <div class="d-flex justify-content-between align-items-center">
-      <h2>Adopt</h2>
-      <ol>
-        <li><a href="{{ url_for('home.home') }}">Home</a></li>
-        <li>Adopt</li>
-      </ol>
+<!-- Hero Section -->
+<section id="adopt-hero" class="page-hero section bg-light-subtle">
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-5 justify-content-between align-items-center mt-5">
+      <div class="col-lg-6">
+        <h1>ADOPT A DOG</h1>
+        <h2>Find Your Perfect Companion at Barb's Dog Rescue</h2>
+        <p class="fs-5">We have dogs of all ages, breeds, sizes, and personalities available for adoption. From wiggling puppies to gentle seniors, there are so many amazing dogs at Barb's Dog Rescue who are looking for their forever homes.</p>
+        <p class="fs-5">Every dog in our care has a story. Some were lovingly surrendered by families who could not care for them. Many of our dogs were homeless, living on the streets. And sadly, many have survived abuse or painful injuries. Each is looking for someone to love them.</p>
+        <div class="mt-4 d-flex gap-3 flex-wrap">
+          <a href="#available-dogs" class="btn btn-danger">Browse Available Dogs</a>
+          <a href="#adoption-process" class="btn btn-outline-primary">Learn About Adoption</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <img src="{{ url_for('static', filename='img/adopt/adopt.jpeg') }}" class="img-fluid rounded-4 shadow" style="object-fit: cover; height: 100%; width: 100%;" alt="Dogs at Barb's Dog Rescue">
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- Adoption Section -->
-<section class="inner-page">
+<!-- Quick Navigation -->
+<section class="donation-nav py-3 bg-light">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-12">
+        <p class="mb-2 fw-bold">Jump to:</p>
+        <div class="donation-links d-flex flex-wrap justify-content-center gap-2">
+          <a href="#available-dogs" class="btn btn-sm btn-outline-primary">Available Dogs</a>
+          <a href="#adoption-process" class="btn btn-sm btn-outline-primary">Adoption Process</a>
+          <a href="#adoption-faq" class="btn btn-sm btn-outline-primary">FAQs</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Available Dogs Section -->
+<section id="available-dogs" class="section">
   <div class="container">
     <div class="row mb-5">
       <div class="col-12 text-center">
-        <h2>Find Your Perfect Companion</h2>
+        <h2 class="section-title">Find Your Perfect Companion</h2>
         <p class="lead">Discover dogs looking for their forever homes</p>
       </div>
     </div>
 
+    <!-- Dog Filters -->
+    <div class="row mb-4">
+      <div class="col-md-8 mx-auto">
+        <div class="card p-3 shadow-sm">
+          <form method="GET" action="#available-dogs">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label">{{ search_form.sex.label }}</label>
+                {{ search_form.sex(class="form-select") }}
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">{{ search_form.age.label }}</label>
+                {{ search_form.age(class="form-select") }}
+              </div>
+              <div class="col-md-4">
+                <label class="form-label">{{ search_form.size.label }}</label>
+                {{ search_form.size(class="form-select") }}
+              </div>
+            </div>
+            <div class="mt-3 text-center">
+              <button type="submit" class="btn btn-danger px-4">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <div class="dog-results my-4 d-flex justify-content-between align-items-center">
+      <p class="text-muted mb-0">
+        {% if total_dogs > 0 %}
+          Displaying 
+          <span class="fw-bold text-danger">{{ min }}</span> - 
+          <span class="fw-bold text-danger">{{ max }}</span> of 
+          <span class="fw-bold">{{ total_dogs }}</span> Available Dog{% if total_dogs != 1 %}s{% endif %}
+        {% else %}
+          No dogs found matching your criteria
+        {% endif %}
+      </p>
+      
+      <form method="GET" action="#available-dogs" class="d-flex align-items-center">
+        {% for key, value in filters.items() %}
+          <input type="hidden" name="{{ key }}" value="{{ value }}">
+        {% endfor %}
+        <label for="per-page" class="me-2 mb-0">Show:</label>
+        {{ pagination_form.per_page(class="form-select form-select-sm", style="width: auto;", onchange="this.form.submit()") }}
+      </form>
+    </div>
+    
     <div class="row g-4">
-      <!-- This would eventually be populated from a database -->
-      <div class="col-lg-4 col-md-6">
-        <div class="card">
-          <img src="{{ url_for('static', filename='img/portfolio/app-1.jpg') }}" class="card-img-top" alt="Dog Photo Placeholder">
+{% if dogs|length > 0 %}
+  {% for dog_row in dogs | batch(4, "&nbsp;") %}
+    <div class="row ms-1 w-100 justify-content-between">
+      {% for dog in dog_row %}
+        {% if dog != "&nbsp;" %}
+          <div class="col-md-3 col-6 p-2 mb-4 dog_search_result bg-light text-center" style="cursor:pointer;" id="{{ dog.id }}">
+            <a href="{{ url_for('adopt.dog_detail', dog_id=dog.id) }}">
+              {% if dog.images %}
+              <img src="{{ dog.images[0].get('image').get('url') }}" />
+              {% else %}
+              <img src="{{ url_for('static', filename='img/img_404.png') }}" />
+              {% endif %}
+              <div class="row">
+                <div class="col pt-2">
+                  <span class="fw-bold barbs_red">{{ dog.name }}</span>
+                  <i class="bi bi-gender-{{ dog.sex|lower }} gender_{{ dog.sex|lower }} fw-bold" title="{{ dog.sex }}"></i>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col fw-bold text-dark" style="font-size:smaller;">{{ dog.age }}</div>
+              </div>
+              <div class="row">
+                <div class="col text-dark" style="font-size:smaller;">
+                  {{ dog.primary_breed }}
+                  {% if dog.secondary_breed %}
+                    &amp; {{ dog.secondary_breed }}
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          </div>
+        {% else %}
+          <div class="col-md-3 col-6 p-2 mb-4">&nbsp;</div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endfor %}
+{% else %}
+  <div class="w-100 text-center">
+    <div class="mt-4">
+      <h3>No Dogs Matched Your Search Criteria</h3>
+    </div>
+    <div>
+      Please modify your search and try again.
+    </div>
+    <img src="{{ url_for('static', filename='img/sad_pup.png') }}" class="mw-50 mt-3" alt="Sad Pup" />
+  </div>
+{% endif %}
+
+    </div>
+    
+    <!-- Pagination -->
+    {% if total_pages > 0 %}
+    <div class="my-5 d-flex justify-content-center">
+      <nav>
+        <ul class="pagination">
+          <!-- Previous button -->
+          <li class="page-item {{ 'disabled' if current_page == 1 else '' }}">
+            <a class="page-link" href="{{ url_for('adopt.adopt_page', page=current_page-1, per_page=per_page, **filters) if current_page > 1 else '#' }}">&laquo;</a>
+          </li>
+          
+          <!-- First page -->
+          {% if current_page > 3 %}
+          <li class="page-item">
+            <a class="page-link" href="{{ url_for('adopt.adopt_page', page=1, per_page=per_page, **filters) }}">1</a>
+          </li>
+          {% endif %}
+          
+          <!-- Ellipsis if needed -->
+          {% if current_page > 4 %}
+          <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+          {% endif %}
+          
+          <!-- Pages around current page -->
+          {% set start_page = current_page - 2 if current_page > 2 else 1 %}
+          {% set end_page = current_page + 2 if current_page + 2 < total_pages else total_pages %}
+          {% for page_num in range(start_page, end_page + 1) %}
+          <li class="page-item {{ 'active' if page_num == current_page else '' }}">
+            <a class="page-link" href="{{ url_for('adopt.adopt_page', page=page_num, per_page=per_page, **filters) }}">{{ page_num }}</a>
+          </li>
+          {% endfor %}
+          
+          <!-- Ellipsis if needed -->
+          {% if current_page < total_pages - 3 %}
+          <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+          {% endif %}
+          
+          <!-- Last page -->
+          {% if current_page < total_pages - 2 %}
+          <li class="page-item">
+            <a class="page-link" href="{{ url_for('adopt.adopt_page', page=total_pages, per_page=per_page, **filters) }}">{{ total_pages }}</a>
+          </li>
+          {% endif %}
+          
+          <!-- Next button -->
+          <li class="page-item {{ 'disabled' if current_page == total_pages else '' }}">
+            <a class="page-link" href="{{ url_for('adopt.adopt_page', page=current_page+1, per_page=per_page, **filters) if current_page < total_pages else '#' }}">&raquo;</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Adoption Process Section -->
+<section id="adoption-process" class="section bg-light py-5">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Adoption Process</h2>
+        <p class="lead">Here's how our adoption process works:</p>
+      </div>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="card h-100 border-0 p-4 shadow-sm text-center">
+          <div class="text-center mb-3">
+            <div class="rounded-circle bg-danger text-white d-inline-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
+              <span class="fs-4">1</span>
+            </div>
+          </div>
           <div class="card-body">
-            <h5 class="card-title">Max</h5>
-            <p class="card-text">Male | 2 years | Medium</p>
-            <p class="card-text">Friendly and energetic dog looking for an active family.</p>
-            <a href="#" class="btn-primary w-100">Learn More</a>
+            <h4 class="card-title mb-3">Browse Available Dogs</h4>
+            <p class="card-text">Look through our selection of dogs in need of loving homes.</p>
           </div>
         </div>
       </div>
       
-      <div class="col-lg-4 col-md-6">
-        <div class="card">
-          <img src="{{ url_for('static', filename='img/portfolio/app-2.jpg') }}" class="card-img-top" alt="Dog Photo Placeholder">
+      <div class="col-md-3">
+        <div class="card h-100 border-0 p-4 shadow-sm text-center">
+          <div class="text-center mb-3">
+            <div class="rounded-circle bg-danger text-white d-inline-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
+              <span class="fs-4">2</span>
+            </div>
+          </div>
           <div class="card-body">
-            <h5 class="card-title">Bella</h5>
-            <p class="card-text">Female | 4 years | Small</p>
-            <p class="card-text">Sweet and affectionate companion who loves cuddles.</p>
-            <a href="#" class="btn-primary w-100">Learn More</a>
+            <h4 class="card-title mb-3">Submit Application</h4>
+            <p class="card-text">Fill out our adoption application form to begin the process.</p>
           </div>
         </div>
       </div>
       
-      <div class="col-lg-4 col-md-6">
-        <div class="card">
-          <img src="{{ url_for('static', filename='img/portfolio/app-3.jpg') }}" class="card-img-top" alt="Dog Photo Placeholder">
+      <div class="col-md-3">
+        <div class="card h-100 border-0 p-4 shadow-sm text-center">
+          <div class="text-center mb-3">
+            <div class="rounded-circle bg-danger text-white d-inline-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
+              <span class="fs-4">3</span>
+            </div>
+          </div>
           <div class="card-body">
-            <h5 class="card-title">Rocky</h5>
-            <p class="card-text">Male | 1 year | Large</p>
-            <p class="card-text">Playful and loyal dog who gets along with children.</p>
-            <a href="#" class="btn-primary w-100">Learn More</a>
+            <h4 class="card-title mb-3">Meet & Greet</h4>
+            <p class="card-text">Schedule a time to meet your potential new family member.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3">
+        <div class="card h-100 border-0 p-4 shadow-sm text-center">
+          <div class="text-center mb-3">
+            <div class="rounded-circle bg-danger text-white d-inline-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
+              <span class="fs-4">4</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title mb-3">Welcome Home</h4>
+            <p class="card-text">Complete the adoption and welcome your new friend home!</p>
           </div>
         </div>
       </div>
     </div>
     
     <div class="row mt-5">
-      <div class="col-12">
-        <div class="card p-4">
-          <h3 class="card-title">Adoption Process</h3>
-          <p>Here's how our adoption process works:</p>
-          
-          <div class="d-flex mb-3">
-            <div class="icon-box me-3">
-              <span class="icon"><i class="bi bi-1-circle"></i></span>
-            </div>
-            <div>
-              <h5>Browse Available Dogs</h5>
-              <p>Look through our selection of dogs in need of homes.</p>
-            </div>
-          </div>
-          
-          <div class="d-flex mb-3">
-            <div class="icon-box me-3">
-              <span class="icon"><i class="bi bi-2-circle"></i></span>
-            </div>
-            <div>
-              <h5>Submit Application</h5>
-              <p>Fill out our adoption application form.</p>
-            </div>
-          </div>
-          
-          <div class="d-flex mb-3">
-            <div class="icon-box me-3">
-              <span class="icon"><i class="bi bi-3-circle"></i></span>
-            </div>
-            <div>
-              <h5>Meet & Greet</h5>
-              <p>Schedule a time to meet your potential new family member.</p>
+      <div class="col-12 text-center">
+        <a href="mailto:barbsdogrescue@gmail.com" class="btn btn-danger btn-lg">Start the Adoption Process</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="adoption-faq" class="section py-5">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="lead">Common questions about our adoption process</p>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="accordion" id="adoptionFAQ">
+          <div class="accordion-item shadow-sm mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                What are the adoption fees?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#adoptionFAQ">
+              <div class="accordion-body">
+                <p>Our adoption fees typically range from $200-$300 depending on the dog's age, breed, and medical needs. This fee helps cover the cost of spaying/neutering, vaccinations, microchipping, and other medical care the dog has received while in our care.</p>
+              </div>
             </div>
           </div>
           
-          <div class="d-flex">
-            <div class="icon-box me-3">
-              <span class="icon"><i class="bi bi-4-circle"></i></span>
+          <div class="accordion-item shadow-sm mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                Do you offer transportation for adopted dogs?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#adoptionFAQ">
+              <div class="accordion-body">
+                <p>Yes, we can arrange transportation for adopted dogs to various locations in the US and Canada. Transportation fees vary depending on the destination. Please contact us for more information about our transportation options.</p>
+              </div>
             </div>
-            <div>
-              <h5>Welcome Home</h5>
-              <p>Complete the adoption process and welcome your new friend home!</p>
+          </div>
+          
+          <div class="accordion-item shadow-sm mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                What is included when I adopt a dog?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#adoptionFAQ">
+              <div class="accordion-body">
+                <p>All of our dogs come spayed/neutered, vaccinated, dewormed, and microchipped. They also come with health certificates and any medical records we have for them. Additionally, we provide post-adoption support to help with the transition.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item shadow-sm mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                Can I meet a dog before adopting?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#adoptionFAQ">
+              <div class="accordion-body">
+                <p>Yes, we encourage potential adopters to meet the dogs they're interested in adopting. You can visit our rescue in Puerto Peñasco, Mexico, or attend one of our adoption events in Arizona. If you're unable to visit in person, we can arrange video calls to introduce you to the dog.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="accordion-item shadow-sm mb-3">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                What if the adoption doesn't work out?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#adoptionFAQ">
+              <div class="accordion-body">
+                <p>We understand that sometimes, despite the best intentions, an adoption may not work out. We ask that you return the dog to us rather than rehoming on your own so we can find the right match for the dog. Our adoption contract requires that any dog adopted from us be returned to our care if you can no longer keep them.</p>
+              </div>
             </div>
           </div>
         </div>

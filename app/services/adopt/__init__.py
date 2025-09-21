@@ -1,0 +1,3 @@
+"""
+Adopt services package
+"""
