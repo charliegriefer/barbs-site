@@ -876,11 +876,16 @@ li i.bi-check-circle-fill,
   text-decoration: none;
 }
 
-/* Gender icons styling */
+/* Dog name styling - using span element to be more specific */
+.dog_search_result .col.pt-2 > span.fw-bold {
+  color: var(--barbs-primary);
+}
+
+/* Gender icons styling - using !important to ensure these styles take precedence */
 .gender_male {
-  color: #01a6ea;
+  color: #01a6ea !important;
 }
 
 .gender_female {
-  color: #ffb1cb;
+  color: #ffb1cb !important;
 }
