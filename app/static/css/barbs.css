@@ -680,9 +680,30 @@ li i.bi-check-circle-fill,
   border-radius: 4px;
 }
 
-/* Hero section */
-#donate-hero {
+/* Hero section - shared for all pages */
+.page-hero {
   padding-top: 100px; /* Reduced padding to work with the mt-5 class added to the row */
+  margin-top: 0;
+  padding-bottom: 50px;
+}
+
+.page-hero h1 {
+  color: var(--barbs-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.page-hero h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* For backward compatibility - donate page */
+#donate-hero {
+  padding-top: 100px;
   margin-top: 0;
   padding-bottom: 50px;
 }

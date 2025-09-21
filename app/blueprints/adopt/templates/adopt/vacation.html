@@ -4,26 +4,26 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section id="vacation-hero" class="section bg-light-subtle"> 
-  <div class="container position-relative" style="margin-top: 120px;" data-aos="fade-up" data-aos-delay="100">
-    <div class="row justify-content-between"> <!-- Removed mt-5, using container margin instead -->
+<section id="vacation-hero" class="page-hero section bg-light-subtle">
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-5 justify-content-between align-items-center mt-5">
       <div class="col-lg-6">
-        <h1 style="color: var(--barbs-primary); font-size: 2.5rem; font-weight: 600;">TAKE A BDR DOG ON VACATION</h1>
+        <h1>TAKE A BDR DOG ON VACATION</h1>
         <div class="d-flex align-items-center mb-4">
           <img src="{{ url_for('static', filename='img/adopt/getaway/pawsome getaways.png') }}" alt="Pawsome Getaways Logo" class="img-fluid me-3" style="max-width: 150px;">
           <h2 class="mb-0">Enjoy a Pawsome Getaway with a shelter dog!</h2>
         </div>
         
         <!-- Vacation with a Purpose content moved up -->
-        <p class="mb-3">Visiting Puerto Peñasco? Take a shelter dog from Barb's Dog Rescue on vacation with you!</p>
-        <p>You'll enjoy the company of a four-legged friend and give a dog a break from shelter life, and the shelter pup is sure to make things fun! At the end of your vacation, you simply return the dog to the shelter.</p>
-        <p>If you fall in love and wish to adopt the dog, you will have the option to do so, but there is no pressure to keep the dog. Our goal is to help our dogs get more socialized and enjoy new experiences, and give them a break from the shelter.</p>
-        <div class="mt-4">
+        <p class="fs-5">Visiting Puerto Peñasco? Take a shelter dog from Barb's Dog Rescue on vacation with you!</p>
+        <p class="fs-5">You'll enjoy the company of a four-legged friend and give a dog a break from shelter life, and the shelter pup is sure to make things fun! At the end of your vacation, you simply return the dog to the shelter.</p>
+        <p class="fs-5">If you fall in love and wish to adopt the dog, you will have the option to do so, but there is no pressure to keep the dog. Our goal is to help our dogs get more socialized and enjoy new experiences, and give them a break from the shelter.</p>
+        <div class="mt-4 d-flex gap-3 flex-wrap">
           <a href="mailto:barbsdogrescue@gmail.com" class="btn btn-danger">Contact Us to Arrange</a>
         </div>
       </div>
       <div class="col-lg-5">
-        <img src="{{ url_for('static', filename='img/adopt/getaway/islay_beach.png') }}" class="img-fluid rounded-4 shadow" alt="Dog on vacation">
+        <img src="{{ url_for('static', filename='img/adopt/getaway/islay_beach.png') }}" class="img-fluid rounded-4 shadow" style="object-fit: cover; height: 100%; width: 100%;" alt="Dog on vacation">
       </div>
     </div>
   </div>
@@ -95,12 +95,12 @@
     <div class="row">
       <div class="col-md-6 mb-4">
         <div class="gallery-item position-relative">
-          <img src="{{ url_for('static', filename='img/portfolio/product-2.jpg') }}" class="img-fluid rounded-4 shadow-sm" alt="Dog and Person on Beach">
+          <img src="{{ url_for('static', filename='img/adopt/getaway/getaway_01.png') }}" class="img-fluid rounded-4 shadow-sm" alt="Dog and Person on Beach">
         </div>
       </div>
       <div class="col-md-6 mb-4">
         <div class="gallery-item position-relative">
-          <img src="{{ url_for('static', filename='img/portfolio/product-3.jpg') }}" class="img-fluid rounded-4 shadow-sm" alt="Dog in Car">
+          <img src="{{ url_for('static', filename='img/adopt/getaway/getaway_03.png') }}" class="img-fluid rounded-4 shadow-sm" alt="Dogs walking on Beach">
         </div>
       </div>
     </div>
