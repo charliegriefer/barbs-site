@@ -60,7 +60,12 @@
     <div class="row mb-4">
       <div class="col-md-8 mx-auto">
         <div class="card p-3 shadow-sm">
-          <form method="GET" action="#available-dogs">
+          <form method="GET" action="#available-dogs"
+                hx-get="{{ url_for('adopt.dog_results') }}" 
+                hx-target="#dog-results-container" 
+                hx-swap="innerHTML"
+                hx-push-url="true"
+                hx-trigger="submit">
             <div class="row g-3">
               <div class="col-md-4">
                 <label class="form-label">{{ search_form.sex.label }}</label>
@@ -83,130 +88,34 @@
       </div>
     </div>
     
-    <div class="dog-results my-4 d-flex justify-content-between align-items-center">
-      <p class="text-muted mb-0">
-        {% if total_dogs > 0 %}
-          Displaying 
-          <span class="fw-bold text-danger">{{ min }}</span> - 
-          <span class="fw-bold text-danger">{{ max }}</span> of 
-          <span class="fw-bold">{{ total_dogs }}</span> Available Dog{% if total_dogs != 1 %}s{% endif %}
-        {% else %}
-          No dogs found matching your criteria
-        {% endif %}
-      </p>
-      
-      <form method="GET" action="#available-dogs" class="d-flex align-items-center">
-        {% for key, value in filters.items() %}
-          <input type="hidden" name="{{ key }}" value="{{ value }}">
-        {% endfor %}
-        <label for="per-page" class="me-2 mb-0">Show:</label>
-        {{ pagination_form.per_page(class="form-select form-select-sm", style="width: auto;", onchange="this.form.submit()") }}
-      </form>
-    </div>
-    
-    <div class="row g-4">
-{% if dogs|length > 0 %}
-  {% for dog_row in dogs | batch(4, "&nbsp;") %}
-    <div class="row ms-1 w-100 justify-content-between">
-      {% for dog in dog_row %}
-        {% if dog != "&nbsp;" %}
-          <div class="col-md-3 col-6 p-2 mb-4 dog_search_result bg-light text-center" style="cursor:pointer;" id="{{ dog.id }}">
-            <a href="{{ url_for('adopt.dog_detail', dog_id=dog.id) }}">
-              {% if dog.images %}
-              <img src="{{ dog.images[0].get('image').get('url') }}" />
-              {% else %}
-              <img src="{{ url_for('static', filename='img/img_404.png') }}" />
-              {% endif %}
-              <div class="row">
-                <div class="col pt-2">
-                  <span class="fw-bold">{{ dog.name }}</span>
-                  <i class="bi bi-gender-{{ dog.sex|lower }} gender_{{ dog.sex|lower }} fw-bold" title="{{ dog.sex }}"></i>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col fw-bold text-dark" style="font-size:smaller;">{{ dog.age }}</div>
-              </div>
-              <div class="row">
-                <div class="col text-dark" style="font-size:smaller;">
-                  {{ dog.primary_breed }}
-                  {% if dog.secondary_breed %}
-                    &amp; {{ dog.secondary_breed }}
-                  {% endif %}
-                </div>
-              </div>
-            </a>
-          </div>
-        {% else %}
-          <div class="col-md-3 col-6 p-2 mb-4">&nbsp;</div>
-        {% endif %}
+    <!-- "Per page" form for displaying dog results -->
+    <form method="GET" action="#available-dogs" class="d-flex align-items-center mb-4 justify-content-end"
+          hx-get="{{ url_for('adopt.dog_results') }}" 
+          hx-target="#dog-results-container" 
+          hx-swap="innerHTML"
+          hx-push-url="true"
+          hx-include="[name='per_page'],[name='sex'],[name='age'],[name='size']">
+      {% for key, value in filters.items() %}
+        <input type="hidden" name="{{ key }}" value="{{ value }}">
       {% endfor %}
-    </div>
-  {% endfor %}
-{% else %}
-  <div class="w-100 text-center">
-    <div class="mt-4">
-      <h3>No Dogs Matched Your Search Criteria</h3>
-    </div>
-    <div>
-      Please modify your search and try again.
-    </div>
-    <img src="{{ url_for('static', filename='img/sad_pup.png') }}" class="mw-50 mt-3" alt="Sad Pup" />
-  </div>
-{% endif %}
-
-    </div>
+      <label for="per-page" class="me-2 mb-0">Show:</label>
+      {{ pagination_form.per_page(class="form-select form-select-sm", style="width: auto;", onchange="this.closest('form').requestSubmit()") }}
+    </form>
     
-    <!-- Pagination -->
-    {% if total_pages > 0 %}
-    <div class="my-5 d-flex justify-content-center">
-      <nav>
-        <ul class="pagination">
-          <!-- Previous button -->
-          <li class="page-item {{ 'disabled' if current_page == 1 else '' }}">
-            <a class="page-link" href="{{ url_for('adopt.adopt_page', page=current_page-1, per_page=per_page, **filters) if current_page > 1 else '#' }}">&laquo;</a>
-          </li>
-          
-          <!-- First page -->
-          {% if current_page > 3 %}
-          <li class="page-item">
-            <a class="page-link" href="{{ url_for('adopt.adopt_page', page=1, per_page=per_page, **filters) }}">1</a>
-          </li>
-          {% endif %}
-          
-          <!-- Ellipsis if needed -->
-          {% if current_page > 4 %}
-          <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
-          {% endif %}
-          
-          <!-- Pages around current page -->
-          {% set start_page = current_page - 2 if current_page > 2 else 1 %}
-          {% set end_page = current_page + 2 if current_page + 2 < total_pages else total_pages %}
-          {% for page_num in range(start_page, end_page + 1) %}
-          <li class="page-item {{ 'active' if page_num == current_page else '' }}">
-            <a class="page-link" href="{{ url_for('adopt.adopt_page', page=page_num, per_page=per_page, **filters) }}">{{ page_num }}</a>
-          </li>
-          {% endfor %}
-          
-          <!-- Ellipsis if needed -->
-          {% if current_page < total_pages - 3 %}
-          <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
-          {% endif %}
-          
-          <!-- Last page -->
-          {% if current_page < total_pages - 2 %}
-          <li class="page-item">
-            <a class="page-link" href="{{ url_for('adopt.adopt_page', page=total_pages, per_page=per_page, **filters) }}">{{ total_pages }}</a>
-          </li>
-          {% endif %}
-          
-          <!-- Next button -->
-          <li class="page-item {{ 'disabled' if current_page == total_pages else '' }}">
-            <a class="page-link" href="{{ url_for('adopt.adopt_page', page=current_page+1, per_page=per_page, **filters) if current_page < total_pages else '#' }}">&raquo;</a>
-          </li>
-        </ul>
-      </nav>
+    <!-- Dog Results Container - This is what HTMX will replace -->
+    <div class="position-relative">
+      <!-- Loading indicator for HTMX -->
+      <div class="dog-results-loading htmx-indicator position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center" style="top: 0; left: 0; background-color: rgba(255,255,255,0.8); z-index: 10;">
+        <div class="spinner-border text-danger" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="mt-2">Loading dogs...</div>
+      </div>
+      
+      <div id="dog-results-container" class="row g-4">
+        {% include "adopt/_dog_results.html" %}
+      </div>
     </div>
-    {% endif %}
   </div>
 </section>
 

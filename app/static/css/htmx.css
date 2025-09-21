@@ -1,0 +1,16 @@
+.htmx-indicator {
+  opacity: 0;
+  transition: opacity 200ms ease-in;
+  pointer-events: none;
+}
+.htmx-request .htmx-indicator {
+  opacity: 1;
+}
+.htmx-request.htmx-indicator {
+  opacity: 1;
+}
+.dog-results-loading {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 8px;
+}

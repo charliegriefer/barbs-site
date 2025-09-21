@@ -881,6 +881,17 @@ li i.bi-check-circle-fill,
   color: var(--barbs-primary);
 }
 
+/* Results info styling */
+.dog-results {
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem !important;
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
 /* Gender icons styling - using !important to ensure these styles take precedence */
 .gender_male {
   color: #01a6ea !important;

@@ -27,7 +27,6 @@ def on_register(state):
 
 @adopt_bp.route("/adopt")
 def adopt_page():
-
     # Process search request
     search_data = dog_service.process_search_request(request.args)
 
@@ -40,6 +39,32 @@ def adopt_page():
         calculate_page_link=calculate_page_link,
         **search_data,
     )
+
+
+@adopt_bp.route("/adopt/results")
+def dog_results():
+    """
+    HTMX endpoint to render only the dog results section.
+    This allows for pagination without a full page reload.
+    """
+    # Process search request
+    search_data = dog_service.process_search_request(request.args)
+
+    # Prepare forms
+    search_form, pagination_form = dog_service.prepare_forms(search_data)
+
+    # If this is an HTMX request, return only the dog results
+    if request.headers.get("HX-Request"):
+        return render_template(
+            "adopt/_dog_results.html",
+            search_form=search_form,
+            pagination_form=pagination_form,
+            calculate_page_link=calculate_page_link,
+            **search_data,
+        )
+
+    # If it's a regular request, redirect to the full page
+    return adopt_page()
 
 
 @adopt_bp.route("/dog/<int:dog_id>")

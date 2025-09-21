@@ -30,6 +30,12 @@
   
   <!-- Barb's CSS -->
   <link href="{{ url_for('static', filename='css/barbs.css') }}?v=1.0" rel="stylesheet">
+  
+  <!-- HTMX CSS -->
+  <link href="{{ url_for('static', filename='css/htmx.css') }}?v=1.0" rel="stylesheet">
+  
+  <!-- HTMX - For dynamic content loading without page refresh -->
+  <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
 </head>
 
 <body class="index-page">
@@ -67,5 +73,7 @@
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   <!-- Text override -->
   <script src="{{ url_for('static', filename='js/text-override.js') }}?v=1.0"></script>
+  <!-- HTMX Helpers -->
+  <script src="{{ url_for('static', filename='js/htmx-helpers.js') }}?v=1.0"></script>
 </body>
 </html>
