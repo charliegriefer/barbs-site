@@ -900,3 +900,119 @@ li i.bi-check-circle-fill,
 .gender_female {
   color: #ffb1cb !important;
 }
+
+/* -----------------------------------------
+   12. Mobile Navigation & Dropdown Fixes
+----------------------------------------- */
+
+/* Mobile Navigation Dropdown Fix */
+.navmenu .dropdown .toggle-dropdown {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 42px;
+  width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Base styles for adopt dropdown */
+.adopt-dropdown {
+  position: relative;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 1279px) {
+  /* Force all list items to have the same padding and margin */
+  .navmenu > ul > li {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Force all direct links in the menu to have the same padding */
+  .navmenu > ul > li > a {
+    padding: 10px 20px !important;
+    margin: 0 !important;
+    display: flex !important;
+  }
+  
+  /* Override any special styling for the dropdown */
+  .navmenu .adopt-dropdown {
+    padding: 0 !important;
+    margin: 0 !important;
+    position: relative;
+  }
+  
+  /* Fix styling for adopt dropdown in mobile view */
+  .adopt-dropdown > a {
+    cursor: pointer !important;
+  }
+
+  /* Make the dropdown arrow more visible in mobile view */
+  .adopt-dropdown .toggle-dropdown {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 42px;
+    width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  
+  /* Make adopt link exactly match other top-level links */
+  .mobile-adopt-link {
+    padding-left: 20px !important;
+    margin-left: 0 !important;
+    text-indent: 0 !important;
+    display: block !important;
+  }
+  
+  /* Ensure the dropdown is at the same level as other items */
+  .navmenu > ul > li.adopt-dropdown {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Target all list items in the mobile nav to ensure consistency */
+  .navmenu > ul > li {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+/* Desktop view fixes */
+@media (min-width: 1280px) {
+  .adopt-dropdown {
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  .adopt-dropdown > a {
+    cursor: pointer !important;
+    padding-right: 5px !important; /* Minimal padding to keep it tight */
+  }
+  
+  /* Hide the toggle dropdown completely in desktop view */
+  .adopt-dropdown .toggle-dropdown {
+    display: none !important;
+  }
+}
+
+/* Override the default mobile nav behavior for this specific link */
+.mobile-adopt-link:focus {
+  color: var(--nav-dropdown-color, #000) !important;
+}
+
+/* Style the dropdown when active */
+.navmenu .dropdown.active > .toggle-dropdown i {
+  transform: rotate(180deg);
+}
+
+/* Make sure the dropdown toggle is visible against the background */
+.navmenu .dropdown .toggle-dropdown i {
+  transition: 0.3s;
+}

@@ -38,7 +38,13 @@
    * Hide mobile nav on same-page/hash links
    */
   document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
+    navmenu.addEventListener('click', (e) => {
+      // Skip if the link has the data-no-close attribute or is in the adopt dropdown parent
+      if (navmenu.getAttribute('data-no-close') === 'true' || 
+          navmenu.parentElement.classList.contains('adopt-dropdown')) {
+        return;
+      }
+      
       if (document.querySelector('.mobile-nav-active')) {
         mobileNavToogle();
       }
@@ -47,13 +53,13 @@
   });
 
   /**
-   * Toggle mobile nav dropdowns
+   * Toggle nav dropdowns (both mobile and desktop)
    */
   document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
     navmenu.addEventListener('click', function(e) {
       e.preventDefault();
       this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+      this.parentNode.querySelector('ul').classList.toggle('dropdown-active');
       e.stopImmediatePropagation();
     });
   });

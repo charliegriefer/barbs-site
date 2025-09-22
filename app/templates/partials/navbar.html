@@ -27,23 +27,25 @@
         ("About",  "#about"),
         ("Donate", "donate.donate"),
         ("Shop",   "shop.shop"),
+        ("Adopt",  "adopt.special"),
         ("Volunteer", "volunteer.volunteer"),
         ("Contact", "#contact")
     ] %}
 
-    {# Define where to place the Adopt dropdown - after Shop #}
-    {% set adopt_position = 4 %}
     {% set current_endpoint = request.endpoint %}
     <nav id="navmenu" class="navmenu">
     <ul>
         {% for index in range(nav_items|length) %}
-            {# Insert Adopt dropdown at the specified position #}
-            {% if index == adopt_position %}
+            {% set label, target = nav_items[index] %}
+            
+            {% if label == "Adopt" %}
                 {# Special handling for Adopt dropdown #}
-                <li class="dropdown">
-                    <a href="#" class="{{ 'active' if current_endpoint and current_endpoint.startswith('adopt.') else '' }}">
-                        <span>Adopt</span> <i class="bi bi-chevron-down"></i>
+                <li class="dropdown adopt-dropdown">
+                    <a href="javascript:void(0)" 
+                       class="{{ 'active' if current_endpoint and current_endpoint.startswith('adopt.') else '' }}">
+                        <span>Adopt</span><i class="bi bi-chevron-down d-none d-xl-inline-block ms-1"></i>
                     </a>
+                    <i class="bi bi-chevron-down toggle-dropdown"></i>
                     <ul>
                         <li>
                             <a href="{{ url_for('adopt.adopt_page') }}" 
@@ -65,25 +67,24 @@
                         </li>
                     </ul>
                 </li>
-            {% endif %}
-            
-            {# Display regular nav item #}
-            {% set label, target = nav_items[index] %}
-            {% if target.startswith('#') %}
-                {# Anchor links handled by request.path comparison if you want #}
-                <li>
-                <a href="{{ target }}"
-                    class="{{ 'active' if request.path == '/' + target else '' }}">
-                    {{ label }}
-                </a>
-                </li>
             {% else %}
-                <li>
-                <a href="{{ url_for(target) }}"
-                    class="{{ 'active' if current_endpoint == target else '' }}">
-                    {{ label }}
-                </a>
-                </li>
+                {# Display regular nav item #}
+                {% if target.startswith('#') %}
+                    {# Anchor links handled by request.path comparison if you want #}
+                    <li>
+                    <a href="{{ target }}"
+                        class="{{ 'active' if request.path == '/' + target else '' }}">
+                        {{ label }}
+                    </a>
+                    </li>
+                {% else %}
+                    <li>
+                    <a href="{{ url_for(target) }}"
+                        class="{{ 'active' if current_endpoint == target else '' }}">
+                        {{ label }}
+                    </a>
+                    </li>
+                {% endif %}
             {% endif %}
         {% endfor %}
     </ul>
