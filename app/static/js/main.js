@@ -221,4 +221,14 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Close mobile nav on close button click
+   */
+  document.addEventListener('DOMContentLoaded', function() {
+    var mobileNavCloseBtn = document.querySelector('.mobile-nav-close');
+    if (mobileNavCloseBtn) {
+      mobileNavCloseBtn.addEventListener('click', mobileNavToogle);
+    }
+  });
+
 })();

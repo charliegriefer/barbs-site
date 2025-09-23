@@ -34,7 +34,12 @@
 
     {% set current_endpoint = request.endpoint %}
     <nav id="navmenu" class="navmenu">
-    <ul>
+      <ul>
+        <li class="d-xl-none" style="position:sticky;top:0;z-index:1051;background:#fff;display:flex;justify-content:flex-end;align-items:center;">
+          <button type="button" class="mobile-nav-close btn p-0 me-2 mt-1" aria-label="Close navigation" style="background:transparent;border:none;">
+            <i class="bi bi-x" style="font-size:2rem;"></i>
+          </button>
+        </li>
         {% for index in range(nav_items|length) %}
             {% set label, target = nav_items[index] %}
             

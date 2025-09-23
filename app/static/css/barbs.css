@@ -1000,6 +1000,17 @@ li i.bi-check-circle-fill,
   .adopt-dropdown .toggle-dropdown {
     display: none !important;
   }
+  
+  .navmenu > ul > li {
+    margin-left: 5px !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .navmenu > ul > li > a {
+    padding-left: 9px !important;
+    padding-right: 9px !important;
+  }
 }
 
 /* Override the default mobile nav behavior for this specific link */
@@ -1015,4 +1026,12 @@ li i.bi-check-circle-fill,
 /* Make sure the dropdown toggle is visible against the background */
 .navmenu .dropdown .toggle-dropdown i {
   transition: 0.3s;
+}
+
+/* Mobile nav close button styles */
+.mobile-nav-close {
+  display: none;
+}
+body.mobile-nav-active .mobile-nav-close {
+  display: block !important;
 }
