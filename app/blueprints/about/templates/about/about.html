@@ -97,7 +97,7 @@
           <div class="col-md-4">
             <div class="team-member text-center">
               {% set img = member.image if member.image else member.name + '.png' %}
-              <img src="{{ url_for('static', filename='img/about/team/' + img) }}" class="rounded-circle mx-auto d-block" alt="{{ member.name }}" style="width: 250px; height: 250px; object-fit: cover;">
+              <img src="{{ url_for('static', filename='img/about/team/' + img | lower) }}" class="rounded-circle mx-auto d-block" alt="{{ member.name }}" style="width: 250px; height: 250px; object-fit: cover;">
               <div class="text-center mb-4 mt-2">
                 <div class="team-name fw-bold" style="font-size:1.25rem; line-height:1.2; margin-bottom:-2px;">{{ member.name }}</div>
                 <div class="team-role text-muted" style="font-size:0.95rem; line-height:1.2;">{{ member.role }}</div>
