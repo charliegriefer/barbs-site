@@ -1,0 +1,170 @@
+{% extends "_base.html" %}
+
+{% block title %}About - Barb's Dog Rescue{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="donate-hero" class="page-hero donate-hero section bg-light-subtle">
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-5 justify-content-between align-items-center mt-5">
+      <div class="col-lg-6">
+        <h1>ABOUT US</h1>
+        <h2>Barb's Dog Rescue of Rocky Point - <i>Rescue Never Stops</i></h2>
+        <p class="fs-5">
+            Barb’s Dog Rescue is saving the lives of Rocky Point’s street dogs! 
+            Most dogs come to us in dire condition; they are often sick, starving, injured or abused. 
+            Many of our female dogs come to us pregnant, and we are so happy to provide these sweet moms with a safe space to have their babies. 
+            2024 was a very busy year, with well over 500 dogs rescued and adopted to loving families! 
+            We lost our founder and hero Barbara Mumaugh last summer, and while her loss has left a hole in our hearts, we are more committed than ever to continue her mission and life’s work.  
+        </p>
+      </div>
+      <div class="col-lg-5">
+        <img src="{{ url_for('static', filename='img/about/hero.jpeg') }}" class="img-fluid rounded-4 shadow" style="object-fit: cover; height: 100%; width: 100%;" alt="Dogs at Barb's Dog Rescue">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Navigation -->
+<section class="sub-nav py-3 bg-light">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-12">
+        <p class="mb-2 fw-bold">Jump to:</p>
+        <div class="subnav-links d-flex flex-wrap justify-content-center gap-2">
+          <a href="#about" class="btn btn-sm btn-outline-primary">About Us</a>
+          <a href="#history" class="btn btn-sm btn-outline-primary">Our History</a>
+          <a href="#team" class="btn btn-sm btn-outline-primary">Meet the Team</a>
+          <a href="#bod" class="btn btn-sm btn-outline-primary">Board of Directors</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Us -->
+<section id="about" class="page-section section bg-white py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">About Barb's Dog Rescue</h2>
+      </div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <p">We rely on <a href="{{ url_for('donate.donate') }}">donations</a> to continue to save these precious souls — we vet, vaccinate, and spay/neuter every dog before they are made available for adoption. Providing veterinary care and food to thousands of dogs is expensive, and we are eternally grateful to our supporters who never let us down!  If you love Rocky Point, please help us control the street dog population by making a donation to this worthy cause.</p>
+        <p>The rescue is currently home to over 450 dogs of all ages, sizes, and breeds! Our dogs live in a community setting, where they learn how to live and play together.  This is great for their socialization and makes their transition into families with other dogs much easier.</p>
+        <p>Our facility is extraordinary, and we love to show it off! Our hard working staff has dedicated themselves to this very important cause.  Rescue never stops—our work continues 24 hours a day, seven days/week.</p>
+        <p>If you’re visiting Rocky Point, please consider giving one of our precious pups a break from shelter life — just stop by the rescue and choose a sweetheart to <a href="{{ url_for('adopt.vacation') }}">take on vacation with you</a>! Maybe, just maybe, you’ll fall in love and decide to make their vacation permanent!</p>
+        <p>We are open to visitors 7 days/week, please come and get a healthy dose of doggie love! We always appreciate volunteers — if you have some spare time to give, contact us at barbsdogrescue@gmail.com.  <a href="{{ url_for('donate.donate') }}">Donations are always welcomed</a>.  We hope to see you soon!</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="mt-4 mt-lg-0">
+          <img src="{{ url_for('static', filename='img/about/about.jpeg') }}" class="img-fluid rounded-4" alt="Barb's Dog Rescue dogs">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="history" class="page-section section bg-white py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 order-lg-2">
+        <h2 class="section-title">Our History</h2>
+        <p>Barb’s Dog Rescue opened its doors in 2001 with one woman’s concern for the thousands of homeless dogs in Puerto Penasco, Mexico. As word about our shelter has spread, our rescue & sanctuary has expanded.  It’s hard to say no to moms with young puppies or injured dogs who would likely not survive if left on the streets. Once just a small shelter run by Barb alone, we now house nearly 400 dogs and puppies on any given day, with a team of staff and dedicated volunteers. Our facility has expanded into several acres of land...we even have a dog park! Because there are not enough people looking to adopt in the Puerto Penasco community, we also work in AZ, attending weekly adoption events all over the state.  Please have a look at our adoption calendar, below!For those that have been severely traumatized or injured, Barb’s Dog Rescue will be their permanent sanctuary, and they will live out their lives knowing they are safe from the challenges of street life.</p>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div>
+          <img src="{{ url_for('static', filename='img/about/team.png') }}" class="img-fluid rounded-4" alt="Dogs at Barb's Dog Rescue">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Meet the Team Section -->
+<section id="team" class="page-section section bg-white py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">Meet the Team</h2>
+      </div>
+    </div>
+    <div class="row align-items-center">
+        {% for member in team_members %}
+          <div class="col-md-4">
+            <div class="team-member text-center">
+              {% set img = member.image if member.image else member.name + '.png' %}
+              <img src="{{ url_for('static', filename='img/about/team/' + img) }}" class="rounded-circle mx-auto d-block" alt="{{ member.name }}" style="width: 250px; height: 250px; object-fit: cover;">
+              <div class="text-center mb-4 mt-2">
+                <div class="team-name fw-bold" style="font-size:1.25rem; line-height:1.2; margin-bottom:-2px;">{{ member.name }}</div>
+                <div class="team-role text-muted" style="font-size:0.95rem; line-height:1.2;">{{ member.role }}</div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<!-- Board of Directors Section -->
+<section id="bod" class="page-section section bg-white py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">Our Board of Directors</h2>
+      </div>
+    </div>
+
+    {% for member in board_members %}
+    <article class="row align-items-start mb-5 d-print-block">
+      <div class="col-md-3">
+        <div class="board-member text-center">
+          <img src="{{ url_for('static', filename='img/about/bod/' + member.image) }}" class="rounded-circle mx-auto d-block" alt="{{ member.name }}" style="width: 200px; height: 200px; object-fit: cover;">
+          <div class="text-center mt-2">
+            <div class="board-name fw-bold" style="font-size:1.1rem; line-height:1.2;">{{ member.name }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="board-bio">
+            {{ member.bio | safe }}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+
+    <div class="row mt-5 mb-0">
+      <div class="col-12">
+        <h5 class="fw-bold mb-0 mt-4">Our Board of Directors:</h5>
+      </div>
+    </div>
+    <div class="row mt-4">
+      {% set remaining_board_members = [
+        {"name": "Lisa Turnbull", "role": "Board Member"},
+        {"name": "Shelley Marsh", "role": "Secretary"},
+        {"name": "Richard Fahnenstock", "role": "Treasurer"},
+        {"name": "Londa Slover", "role": "Board Member"},
+        {"name": "Gail Lacey", "role": "Board Member"},
+        {"name": "Jenny Radigan", "role": "Board Member"},
+        {"name": "Loretta Sernowski", "role": "Board Member"},
+        {"name": "Sara MacDonald", "role": "Board Member"},
+        {"name": "Dr Tandi Sherlock", "role": "Board Member"}
+      ] %}
+
+      {% for member in remaining_board_members %}
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="p-3 bg-light rounded text-center h-100 shadow-sm">
+          <div class="fw-bold" style="font-size: 1.1rem;">{{ member.name }}</div>
+          <div class="text-muted">{{ member.role }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -631,53 +631,13 @@ li i.bi-check-circle-fill,
 .get-started-btn:hover {
   background-color: transparent !important;
   color: var(--barbs-primary) !important;
-}/* -----------------------------------------
-   10. Donation Page Styles 
------------------------------------------ */
+}
 
-/* General donation section styling */
-.donation-section {
+/* General section styling */
+.page-section {
   scroll-margin-top: 140px; /* Increased offset for fixed header when using anchor links */
   padding: 70px 0;
   position: relative;
-}
-
-/* Navigation buttons for donation page */
-.donation-nav {
-  position: sticky;
-  top: 85px; /* Adjusted to be below the fixed navbar */
-  z-index: 98;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 10px 0;
-  margin-top: -15px; /* Pull it up slightly to reduce space */
-  background: white;
-}
-
-.donation-nav .btn-group {
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.donation-nav .btn {
-  margin: 5px;
-  transition: all 0.3s ease;
-}
-
-.donation-nav .btn:hover,
-.donation-nav .btn:focus {
-  background-color: var(--barbs-primary);
-  color: white;
-  border-color: var(--barbs-primary);
-}
-
-.donation-links {
-  margin-top: 5px;
-}
-
-.donation-links .btn {
-  font-size: 0.85rem;
-  padding: 0.375rem 0.75rem;
-  border-radius: 4px;
 }
 
 /* Hero section - shared for all pages */
@@ -1034,4 +994,44 @@ li i.bi-check-circle-fill,
 }
 body.mobile-nav-active .mobile-nav-close {
   display: block !important;
+}
+
+
+/* sub nav on pages */
+.sub-nav {
+  position: sticky;
+  top: 85px; /* Adjusted to be below the fixed navbar */
+  z-index: 98;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  margin-top: -15px; /* Pull it up slightly to reduce space */
+  background: white;
+}
+
+.sub-nav .btn-group {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sub-nav .btn {
+  margin: 2px;
+  transition: all 0.3s ease;
+}
+
+.sub-nav .btn:hover,
+.sub-nav .btn:focus {
+  background-color: var(--barbs-primary);
+  color: white;
+  border-color: var(--barbs-primary);
+}
+
+
+.subnav-links {
+  margin-top: 5px;
+}
+
+.subnav-links .btn {
+  font-size: 0.85rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
 }

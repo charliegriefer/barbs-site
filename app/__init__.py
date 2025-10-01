@@ -20,6 +20,7 @@ def create_app():
     cache.init_app(app, config={"CACHE_TYPE": "SimpleCache"})
 
     # Import blueprints
+    from app.blueprints.about.routes import about_bp
     from app.blueprints.adopt.routes import adopt_bp
     from app.blueprints.donate.routes import donate_bp
     from app.blueprints.home.routes import home_bp
@@ -28,6 +29,7 @@ def create_app():
 
     # Register blueprints
     app.register_blueprint(home_bp)
+    app.register_blueprint(about_bp)
     app.register_blueprint(donate_bp)
     app.register_blueprint(shop_bp)
     app.register_blueprint(adopt_bp)
