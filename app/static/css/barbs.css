@@ -366,7 +366,7 @@
   font-size: 42px;
   line-height: 0;
   margin-right: 20px;
-  color: var(--barbs-primary);
+  color: var(--barbs-accent);
 }
 
 .stats .stats-item span {
