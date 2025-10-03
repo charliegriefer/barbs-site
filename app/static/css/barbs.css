@@ -298,7 +298,11 @@
 /* -----------------------------------------
    5. Call To Action Section
 ----------------------------------------- */
-
+.cta-btn:hover {
+  background-color: var(--barbs-primary) !important;
+  border-color: var(--barbs-primary) !important;
+  filter: brightness(90%);
+}
 
 /* -----------------------------------------
    6. Stats Section
@@ -365,29 +369,26 @@
 /* -----------------------------------------
    7. About Section
 ----------------------------------------- */
-.about-us-section {
-  padding: 80px 0;
-  text-align: center;
+.about {
+  padding: 40px 0;
+  background-color: #f8f9fa;
+  
 }
 
-.about-us-section h2 {
+.about h2 {
   color: var(--barbs-primary);
-  margin-bottom: 40px;
-  position: relative;
+  margin-bottom: 20px;
   padding-bottom: 15px;
 }
 
-.about-us-section h2:after {
+.about h2:after {
   content: '';
-  position: absolute;
   display: block;
   width: 50px;
   height: 3px;
   background: var(--barbs-secondary);
-  bottom: 0;
-  left: calc(50% - 25px);
+  bottom: 0; 
 }
-
 
 /* Section headers override */
 .section-header h2:after {
