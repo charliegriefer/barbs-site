@@ -15,6 +15,11 @@
   --barbs-dark: #333333;
 }
 
+:root {
+  --nav-color: #333333;
+  --nav-background-color: #FFF8DC;
+}
+
 /* -----------------------------------------
    2. Header & Navigation
 ----------------------------------------- */
@@ -34,7 +39,7 @@
 
 /* Branding section */
 .branding {
-  background-color: #fff3b0 !important; /* Light gray */
+  background-color: var(--nav-background-color) !important;
   padding: 10px 0 !important;
   border-bottom: 1px solid #e9e9e9;
 }
@@ -70,18 +75,18 @@
 
 .logo .sitename {
   display: inline-block !important;
-  color: var(--barbs-dark) !important;
+  color: var(--nav-color) !important;
   margin: 0 !important;
 }
 
 /* Navigation styling - completely overriding theme defaults */
 .mobile-nav-toggle {
-  color: var(--barbs-dark) !important;
+  color: var(--nav-color) !important;
 }
 
 .navmenu ul li a {
   position: relative;
-  color: var(--barbs-dark) !important;
+  color: var(--nav-color) !important;
   text-decoration: none !important;
   transition: color 0.3s ease;
   padding: 8px 0;
@@ -298,10 +303,19 @@
 /* -----------------------------------------
    5. Call To Action Section
 ----------------------------------------- */
-.cta-btn:hover {
+.cta-btn {
   background-color: var(--barbs-primary) !important;
-  border-color: var(--barbs-primary) !important;
-  filter: brightness(90%);
+  color: white !important;
+  border-radius: 30px !important;
+  padding: 12px 30px !important;
+  font-weight: 600 !important;
+  border: 2px solid var(--barbs-primary) !important;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: white !important;
+  color: var(--barbs-primary) !important;
 }
 
 /* -----------------------------------------
