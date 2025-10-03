@@ -572,11 +572,11 @@ li i.bi-check-circle-fill,
 # Scroll Top Button Overrides
 --------------------------------------------------------------*/
 .scroll-top {
-  background-color: var(--barbs-primary) !important;
+  background-color: var(--barbs-accent) !important;
 }
 
 .scroll-top:hover {
-  background-color: color-mix(in srgb, var(--barbs-primary), transparent 20%) !important;
+  background-color: color-mix(in srgb, var(--barbs-accent), transparent 20%) !important;
   color: var(--contrast-color);
 }
 
