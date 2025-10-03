@@ -8,15 +8,16 @@
 ----------------------------------------- */
 :root {
   /* Core brand colors from logo */
-  --barbs-primary: #B12025;     /* Burgundy/red from logo */
-  --barbs-secondary: #F9CD2A;   /* Yellow from logo/dog */
-  --barbs-accent: #588cd3;      /* Blue used in call-to-action */
+  --barbs-primary: #B12025;
+  --barbs-secondary: #F9CD2A;
+  --barbs-accent: #588CD3;
   --barbs-light: #FFFFFF;
   --barbs-dark: #333333;
 }
 
 :root {
   --nav-color: #333333;
+  --nav-hover-color: #588CD3;
   --nav-background-color: #FFF8DC;
 }
 
@@ -121,13 +122,13 @@
 /* Only show the underline on hover or active state */
 .navmenu ul li a:hover::after,
 .navmenu ul li a.active::after {
-  background-color: var(--barbs-primary) !important;
+  background-color: var(--nav-hover-color) !important;
 }
 
 /* Text color change on hover/active */
 .navmenu ul li a:hover,
 .navmenu ul li a.active {
-  color: var(--barbs-primary) !important;
+  color: var(--nav-hover-color) !important;
 }
 
 /* -----------------------------------------
@@ -137,7 +138,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding: 160px 0 100px 0; /* Adjusted: more top padding, less bottom padding */
+  padding: 160px 0 40px 0; /* Adjusted: more top padding, less bottom padding */
   background: var(--barbs-light) !important; /* White background */
   color: var(--barbs-dark) !important;
 }
@@ -495,8 +496,11 @@
 }
 
 /* Override green elements with barbs-primary red */
+.section-title h2 {
+  color: var(--barbs-accent) !important;
+}
 .section-title h2:after {
-  background: var(--barbs-primary) !important;
+  background: var(--barbs-accent) !important;
 }
 
 /* Change the green checkboxes to barbs-primary red */
@@ -505,7 +509,23 @@ li i.bi-check-circle-fill,
 .check-icon i,
 .about-list i,
 .about .content ul i {
-  color: var(--barbs-primary) !important;
+  position: static !important;             /* Use normal flow */
+  font-size: 0.9em !important;            /* Smaller icon */
+  vertical-align: text-bottom !important;  /* Align better */
+  margin-right: 0.3em !important;          /* Less space between icon and text */
+  color: var(--barbs-accent) !important;
+}
+
+.about .content ul {
+  padding-left: 0 !important; /* Remove default list padding */
+}
+
+.about .content ul li {
+  padding-left: 0 !important; /* Don't reserve space for absolute icon */
+}
+
+.about .content ul i {
+  line-height: 1 !important;
 }
 
 .copyright p {
