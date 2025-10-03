@@ -9,7 +9,7 @@
 :root {
   /* Core brand colors from logo */
   --barbs-primary: #B12025;
-  --barbs-secondary: #F9CD2A;
+  --barbs-secondary: #FFF8DC;
   --barbs-accent: #588CD3;
   --barbs-light: #FFFFFF;
   --barbs-dark: #333333;
@@ -437,12 +437,9 @@
 .footer {
   background-color: var(--barbs-dark);
   color: var(--barbs-light);
-  padding-top: 60px;
+  padding-top: 10px;
   padding-bottom: 30px;
-}
-
-.footer-top {
-  padding-bottom: 30px;
+  border-top: 3px solid var(--barbs-accent);
 }
 
 .footer-about .logo {
@@ -468,7 +465,7 @@
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 20px;
-  color: var(--barbs-light);
+  color: #CCC;
 }
 
 .footer-links ul {
@@ -488,7 +485,8 @@
 }
 
 .footer-links ul a:hover {
-  color: var(--barbs-secondary);
+  color: var(--barbs-accent) !important;
+  text-decoration: underline;
 }
 
 .footer-contact p {
@@ -577,8 +575,9 @@ li i.bi-check-circle-fill,
 }
 
 .social-links a:hover {
-  background-color: var(--barbs-secondary);
-  color: var(--barbs-primary);
+  color: #FFF;
+  transform: scale(1.4);
+  transition: 0.2s ease;
 }
 
 
