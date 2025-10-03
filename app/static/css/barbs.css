@@ -159,7 +159,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding: 160px 0 40px 0; /* Adjusted: more top padding, less bottom padding */
+  padding: 160px 0 40px 0 !important; /* Adjusted: more top padding, less bottom padding */
   background: var(--barbs-light) !important; /* White background */
   color: var(--barbs-dark) !important;
 }
