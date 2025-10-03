@@ -131,6 +131,22 @@
   color: var(--nav-hover-color) !important;
 }
 
+/* secondary buttons */
+.btn-outline-accent {
+  color: var(--barbs-accent);
+  border: 2px solid var(--barbs-accent);
+  background-color: transparent;
+  border-radius: 50px; /* pill style like your red CTA */
+  padding: 10px 24px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-accent:hover {
+  background-color: var(--barbs-accent);
+  color: white;
+}
+
 /* -----------------------------------------
    3. Hero Section
 ----------------------------------------- */
