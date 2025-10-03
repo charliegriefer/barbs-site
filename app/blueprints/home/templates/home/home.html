@@ -116,11 +116,10 @@
 <!-- Call To Action Section -->
 <section id="call-to-action" class="call-to-action section dark-background">
   <div class="container">
-    <img src="{{ url_for('static', filename='img/cta-bg.jpg') }}" alt="">
+    <img src="{{ url_for('static', filename='img/cta.jpeg') }}" alt="">
     <div class="content row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
       <div class="col-xl-10">
         <div class="text-center">
-          <a href="#" class="glightbox play-btn"></a>
           <h3>They Need Your Help Today</h3>
           <p>Every donation makes a difference in the life of a dog in need. Your support provides food, shelter, medical care, and the chance for a better life. Join us in our mission to rescue, rehabilitate, and rehome the forgotten dogs of Rocky Point.</p>
           <a class="cta-btn" href="{{ url_for('donate.donate') }}">Make a Donation</a>
@@ -130,12 +129,13 @@
   </div>
 </section>
 
+
 <!-- Stats Section -->
 <section id="stats" class="stats section">
   <div class="container" data-aos="fade-up" data-aos-delay="100">
     <div class="row gy-4 align-items-center">
       <div class="col-lg-5">
-        <img src="{{ url_for('static', filename='img/stats-img.svg') }}" alt="" class="img-fluid">
+        <img src="{{ url_for('static', filename='img/stats.jpeg') }}" alt="" class="img-fluid">
       </div>
       <div class="col-lg-7">
         <div class="row gy-4">
@@ -183,4 +183,5 @@
     </div>
   </div>
 </section>
+
 {% endblock %}
