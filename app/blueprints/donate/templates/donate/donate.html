@@ -12,12 +12,19 @@
         <h2>Help us continue our life saving mission in Puerto Peñasco!</h2>
         <p class="fs-5">Your donation provides food, shelter, medical care, and the chance for a better life for dogs in need. Join us in our mission to rescue, rehabilitate, and rehome the forgotten dogs of Rocky Point.</p>
         <div class="mt-4 d-flex gap-3 flex-wrap">
-          <a href="#one-time" class="btn btn-danger">Donate Now</a>
-          <a href="#recurring" class="btn btn-outline-primary">Become a Monthly Supporter</a>
+          <a href="https://secure.lglforms.com/form_engine/s/xZnhR9E5qO34aoe4b0UiYA" class="btn btn-danger">Donate Now</a>
         </div>
+        <p class="pt-4 fw-bold">
+          Donations can also be mailed to:
+          <p class="mb-2 ps-4">
+            Barb's Dog Rescue<br />
+            PO Box 215<br />
+            Lukeville, AZ 85341
+          </p>
+        </p>
       </div>
       <div class="col-lg-5">
-        <img src="{{ url_for('static', filename='img/about.jpg') }}" class="img-fluid rounded-4 shadow" style="object-fit: cover; height: 100%; width: 100%;" alt="Dogs at Barb's Dog Rescue">
+        <img src="{{ url_for('static', filename='img/donate/donate.jpg') }}" class="img-fluid rounded-4 shadow" style="object-fit: cover; height: 100%; width: 100%;" alt="Dogs at Barb's Dog Rescue">
       </div>
     </div>
   </div>
@@ -30,11 +37,10 @@
       <div class="col-12">
         <p class="mb-2 fw-bold">Jump to:</p>
         <div class="subnav-links d-flex flex-wrap justify-content-center gap-2">
-          <a href="#one-time" class="btn btn-sm btn-outline-primary">One-Time Donation</a>
+          {# <a href="#one-time" class="btn btn-sm btn-outline-primary">One-Time Donation</a> #}
           <a href="#recurring" class="btn btn-sm btn-outline-primary">Monthly Support</a>
           <a href="#ira" class="btn btn-sm btn-outline-primary">IRA Gifts</a>
           <a href="#legacy" class="btn btn-sm btn-outline-primary">Legacy Giving</a>
-          <a href="#mail" class="btn btn-sm btn-outline-primary">Mail-In Donations</a>
         </div>
       </div>
     </div>
@@ -42,7 +48,7 @@
 </section>
 
 <!-- One-Time Donation Section -->
-<section id="one-time" class="page-section section bg-white py-5">
+{# <section id="one-time" class="page-section section bg-white py-5">
   <div class="container">
     <div class="row">
       <div class="col-12">
@@ -90,7 +96,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> #}
 
 <!-- Recurring Donation Section -->
 <section id="recurring" class="page-section section bg-light py-5">
@@ -110,17 +116,17 @@
         </div>
         <p>You'll receive an email confirmation after each donation is processed.</p>
         <div class="mt-4 d-flex flex-wrap gap-3">
-          <a href="#" class="btn btn-danger">
+          <a href="https://secure.lglforms.com/form_engine/s/FNn8yLTZEdDeR0kQDtx_Sg" class="btn btn-danger">
             <i class="bi bi-credit-card-2-front me-2"></i>Set up a Recurring Credit Card Donation
           </a>
-          <a href="#" class="btn btn-outline-primary">
+          <a href="https://www.paypal.com/us/fundraiser/charity/1690226" class="btn btn-outline-primary">
             <i class="bi bi-paypal me-2"></i>Set up a Recurring PayPal Donation
           </a>
         </div>
       </div>
       <div class="col-lg-6 order-lg-1">
         <div>
-          <img src="{{ url_for('static', filename='img/about.jpg') }}" class="img-fluid rounded-4" alt="Dogs at Barb's Dog Rescue">
+          <img src="{{ url_for('static', filename='img/donate/helping_paws.jpeg') }}" class="img-fluid rounded-4" alt="Helping Paws Recurring Donation">
         </div>
       </div>
     </div>
@@ -128,29 +134,26 @@
 </section>
 
 <!-- IRA Donation Section -->
-<section id="ira" class="page-section section bg-danger-subtle py-5">
+<section id="ira" class="page-section section bg-white py-5">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10 text-center">
-        <h2 class="section-title mb-4">Make an IRA Gift!</h2>
-        <div class="row align-items-center">
-          <div class="col-md-1 text-end">
-            <i class="bi bi-paw-fill text-primary fs-1"></i>
-          </div>
-          <div class="col-md-10">
-            <p class="mb-4">If you are 70½ or older, you can make a qualified charitable distribution (QCD) from your IRA to support Barb's Dog Rescue. A QCD is a tax-free donation, and if you are 73 or older, it counts toward your required minimum distribution for the year.</p>
-          </div>
-          <div class="col-md-1 text-start">
-            <i class="bi bi-paw-fill text-primary fs-1"></i>
-          </div>
-        </div>
-        
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h2 class="section-title">Make an IRA Gift!</h2>
+        <p>
+          If you are 70 1/2 or older, you can make a qualified charitable distribution (QCD) from your IRA to support Barb's Dog Rescue. 
+          A QCD is a tax-free donation, and if you are 73 or older, it counts toward your required minimum distribution for the year.
+        </p>
+
         <p class="mb-4">Please provide your plan administrator with the following information to make a qualified charitable distribution from your IRA:</p>
-        
         <div class="donation-info-card mb-4 mx-auto" style="max-width: 600px;">
           <p class="mb-2"><strong>Legal Name:</strong> Barbs Dog Rescue</p>
           <p class="mb-2"><strong>United States Federal Tax ID:</strong> 46-3948346</p>
           <p class="mb-0"><strong>BDR is a registered 501(c)3</strong></p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="mt-4 mt-lg-0">
+          <img src="{{ url_for('static', filename='img/donate/ira_gift.jpg') }}" class="img-fluid rounded-4" alt="IRA Gift to Barb's Dog Rescue">
         </div>
       </div>
     </div>
@@ -158,46 +161,22 @@
 </section>
 
 <!-- Legacy Giving Section -->
-<section id="legacy" class="page-section section py-5 text-white" style="background-size: cover; position: relative;">
-  <div class="legacy-section-overlay"></div>
-  <div class="container position-relative">
-    <div class="row">
-      <div class="col-lg-6">
-        <h2 class="section-title pb-2">Leave a Legacy</h2>
-        <h3 class="mb-4">Include Barb's Dog Rescue in your estate plans to help ensure the future of our shelter for many years to come.</h3>
-        
-        <div class="donation-info-card text-dark">
-          <p>It's easy to include Barb's Dog Rescue in your will or trust, or as a beneficiary of your retirement plan, life insurance policy, or bank account. For more information, <a href="{{ url_for('home.home') }}#contact">contact us</a>. We're here to help.</p>
-          
-          <div class="text-center my-3">
-            <h4 class="text-danger">Make a big impact on dogs in need with your future gift.</h4>
-          </div>
-          
-          <p class="fw-bold text-center mb-0">Include Barb's Dog Rescue in your estate plans.</p>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="d-flex justify-content-center align-items-center h-100">
-          <img src="{{ url_for('static', filename='img/about-2.jpg') }}" class="img-fluid rounded-4" alt="Barb's Dog Rescue dog" style="max-height: 400px; object-fit: cover;">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Mail-In Donation Section -->
-<section id="mail" class="page-section section bg-light-subtle py-5">
+<section id="legacy" class="page-section section bg-light py-5">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <h2 class="section-title">Donations can be mailed to:</h2>
-        <div class="donation-info-card mb-4 mx-auto" style="max-width: 400px;">
-          <p class="mb-2">Barb's Dog Rescue</p>
-          <p class="mb-2">PO Box 215</p>
-          <p class="mb-2">Lukeville, AZ</p>
-          <p class="mb-0">85341</p>
+    <div class="row align-items-center">
+      <div class="col-lg-6 order-lg-2">
+        <h2 class="section-title pb-2">Leave a Legacy</h2>
+        <p>Include Barb's Dog Rescue in your estate plans to help ensure the future of our shelter for many years to come.</p>
+        <p>It's easy to include Barb's Dog Rescue in your will or trust, or as a beneficiary of your retirement plan, life insurance policy, or bank account. For more information, <a href="{{ url_for('home.home') }}#contact">contact us</a>. We're here to help.</p>
+          
+        <h4 class="text-danger">
+          Make a big impact on dogs in need with your future gift by including Barb's Dog Rescue in your estate plans.
+        </h4>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div>
+          <img src="{{ url_for('static', filename='img/donate/legacy.jpg') }}" class="img-fluid rounded-4" alt="Leave a Legacy" />
         </div>
-        <p class="mb-4">Please make checks payable to "Barb's Dog Rescue"</p>
       </div>
     </div>
   </div>
