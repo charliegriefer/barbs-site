@@ -144,12 +144,20 @@
 
 .btn-outline-accent:hover {
   background-color: var(--barbs-accent);
-  color: white;
+  color: white !important;
+}
+
+.btn-outline-primary:hover {
+  color: white !important
 }
 
 .text-accent {
   color: var(--barbs-accent) !important;
   font-weight: 600;
+}
+
+a {
+  color: var(--barbs-accent) !important;
 }
 
 /* -----------------------------------------
