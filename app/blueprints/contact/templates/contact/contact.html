@@ -1,0 +1,122 @@
+{% extends "_base.html" %}
+
+{% block title %}Contact Us - Barb's Dog Rescue{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="contact-hero" class="page-hero donate-hero section bg-light-subtle">
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-5 justify-content-between align-items-center mt-5">
+      <div class="col-lg-6">
+        <h1>CONTACT US</h1>
+        <h2>We love to hear from you! Please contact us with questions, comments, or suggestions.</h2>
+    <div>
+      <p class="mb-1 fw-bold">Mailing address</p>
+      <address class="ps-4 mb-2">
+        Barb's Dog Rescue<br />
+        PO Box 215<br />
+        Lukeville, AZ 85341
+      </address>
+
+      <p class="mb-1 fw-bold">Phone:</p>
+      <p class="mb-2 ps-4">(928) 899-1426<br />
+        (602) 686-8751
+      </p>
+
+      <p class="mb-1 fw-bold">Email:</p>
+      <p class="mb-2 ps-4"><a href="mailto:barbsdogrescue@gmail.com">barbsdogrescue@gmail.com</a></p>
+    </div>
+      </div>
+      <div class="col-lg-5">
+        <img src="{{ url_for('static', filename='img/contact/hero.jpeg') }}" class="img-fluid rounded-4 shadow" style="object-fit: cover; height: 100%; width: 100%;" alt="Dogs at Barb's Dog Rescue">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- contact form section -->
+<section id="contact_form" class="page-section section bg-light py-5">
+  <div class="container">
+    <div class="row gy-4">
+      <!-- Contact Form Column -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-body p-4">
+            <h2 class="section-title mb-3">Contact Barb's</h2>
+            <p class="mb-4">Have questions or need more information? Fill out the form below and we'll get back to you as soon as possible.</p>
+            <form method="post" action="{{ url_for('contact.contact') }}" novalidate>
+              {{ form.hidden_tag() }}
+              
+              <div class="mb-3">
+                {{ form.name.label(class="form-label") }}
+                <span class="text-danger">*</span>
+                {{ form.name(class="form-control" + (" is-invalid" if form.name.errors else ""), placeholder="Your Name") }}
+                {% if form.name.errors %}
+                  <div class="invalid-feedback">
+                    {% for error in form.name.errors %}{{ error }}{% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+              
+              <div class="mb-3">
+                {{ form.email.label(class="form-label") }}
+                <span class="text-danger">*</span>
+                {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else ""), placeholder="Your Email Address") }}
+                {% if form.email.errors %}
+                  <div class="invalid-feedback">
+                    {% for error in form.email.errors %}{{ error }}{% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+              
+              <div class="mb-3">
+                {{ form.phone.label(class="form-label") }}
+                {{ form.phone(class="form-control" + (" is-invalid" if form.phone.errors else ""), placeholder="Your Phone Number") }}
+                {% if form.phone.errors %}
+                  <div class="invalid-feedback">
+                    {% for error in form.phone.errors %}{{ error }}{% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+              
+              <div class="mb-4">
+                {{ form.comments.label(class="form-label") }}
+                <span class="text-danger">*</span>
+                {{ form.comments(class="form-control" + (" is-invalid" if form.comments.errors else ""), placeholder="Your Comments", rows="6") }}
+                {% if form.comments.errors %}
+                  <div class="invalid-feedback">
+                    {% for error in form.comments.errors %}{{ error }}{% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map Column -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-body p-4 d-flex flex-column">
+            <h2 class="section-title mb-3">Visit Barb's</h2>
+            <p class="mb-3">We are located west of Highway 8, just 8 miles north of Puerto Peñasco, Mexico. Follow the yellow Barb's Dog Rescue signs.</p>
+            <div class="ratio ratio-16x9 flex-grow-1">
+              <iframe 
+                src="https://www.google.com/maps?q=31.3268218,-113.5311843&hl=en&z=16&output=embed&t=m&markers=color:red%7Clabel:B%7C31.3268218,-113.5311843"
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Barb's Dog Rescue Location Map">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -22,6 +22,7 @@ def create_app():
     # Import blueprints
     from app.blueprints.about.routes import about_bp
     from app.blueprints.adopt.routes import adopt_bp
+    from app.blueprints.contact.routes import contact_bp
     from app.blueprints.donate.routes import donate_bp
     from app.blueprints.home.routes import home_bp
     from app.blueprints.shop.routes import shop_bp
@@ -34,6 +35,7 @@ def create_app():
     app.register_blueprint(shop_bp)
     app.register_blueprint(adopt_bp)
     app.register_blueprint(volunteer_bp)
+    app.register_blueprint(contact_bp)
 
     return app
 
