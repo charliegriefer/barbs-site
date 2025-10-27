@@ -18,12 +18,12 @@
         <p class="fs-5">Visiting Puerto Peñasco? Take a shelter dog from Barb's Dog Rescue on vacation with you!</p>
         <p class="fs-5">You'll enjoy the company of a four-legged friend and give a dog a break from shelter life, and the shelter pup is sure to make things fun! At the end of your vacation, you simply return the dog to the shelter.</p>
         <p class="fs-5">If you fall in love and wish to adopt the dog, you will have the option to do so, but there is no pressure to keep the dog. Our goal is to help our dogs get more socialized and enjoy new experiences, and give them a break from the shelter.</p>
-        <div class="mt-4 d-flex gap-3 flex-wrap">
-          <a href="mailto:barbsdogrescue@gmail.com" class="btn btn-danger">Contact Us to Arrange</a>
-        </div>
+
+        <a href="{{ url_for('contact.contact') }}" class="btn btn-barbs-primary">Contact Us to Arrange</a>
+
       </div>
       <div class="col-lg-5">
-        <img src="{{ url_for('static', filename='img/adopt/getaway/islay_beach.png') }}" class="img-fluid rounded-4 shadow" style="object-fit: cover; height: 100%; width: 100%;" alt="Dog on vacation">
+        <img src="{{ url_for('static', filename='img/adopt/getaway/hero.png') }}" class="img-fluid rounded-4 shadow" alt="A Barb's Dog Enjoying a Pawsome Getaway">
       </div>
     </div>
   </div>
@@ -89,7 +89,9 @@
     <div class="row">
       <div class="col-12 text-center">
         <h2 class="section-title">Pawsome Memories</h2>
-        <p class="lead mb-5">See the joy these getaways bring to both dogs and humans</p>
+        <p class="lead">See the joy these getaways bring to both dogs and humans!</p>
+        <p>You can choose the dog you'd like to join you on your getaway, or our staff can suggest a dog for you.</p>
+        <a href="{{ url_for('contact.contact') }}" class="btn btn-barbs-primary mb-3">Contact Us Now</a>
       </div>
     </div>
     <div class="row">
@@ -107,19 +109,4 @@
   </div>
 </section>
 
-<!-- Contact Call to Action -->
-<section id="contact-cta" class="section bg-light-subtle py-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <h2 class="section-title">Ready for a Pawsome Adventure?</h2>
-        <p class="lead mb-4">To sign up, contact us at <a href="mailto:barbsdogrescue@gmail.com">barbsdogrescue@gmail.com</a></p>
-        <p class="mb-4">You can choose the dog you'd like to join you on your getaway, or our staff can suggest a dog for you.</p>
-        <div class="mt-4">
-          <a href="mailto:barbsdogrescue@gmail.com" class="btn btn-danger btn-lg px-4 py-2">Contact Us Now</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 {% endblock %}

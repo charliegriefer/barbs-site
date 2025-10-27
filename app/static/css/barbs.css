@@ -131,6 +131,22 @@
   color: var(--nav-hover-color) !important;
 }
 
+/* primary red button */
+.btn-barbs-primary {
+  background-color: var(--barbs-primary);
+  color: #fff !important;
+  border: 2px solid var(--barbs-primary);
+  border-radius: 50px; /* pill style */
+  padding: 10px 24px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-barbs-primary:hover {
+  background-color: white;
+  border: 2px solid var(--barbs-primary);
+  color: var(--barbs-primary) !important;
+}
+
 /* secondary buttons */
 .btn-outline-accent {
   color: var(--barbs-accent);
@@ -346,6 +362,12 @@ a {
 .cta-btn:hover {
   background-color: white !important;
   color: var(--barbs-primary) !important;
+}
+
+/* Make the call-to-action section taller to show more background */
+.call-to-action .container {
+  padding-top: 160px !important;
+  padding-bottom: 160px !important;
 }
 
 /* -----------------------------------------

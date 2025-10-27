@@ -3,161 +3,172 @@
 {% block title %}Volunteer - Barb's Dog Rescue{% endblock %}
 
 {% block content %}
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center">
+<!-- Hero Section -->
+<section id="hero" class="page-hero volunteer-hero section bg-light-subtle">
   <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-    <div class="row justify-content-center">
-      <div class="col-xl-7 col-lg-9 text-center">
-        <h1>Volunteer With Us</h1>
-        <h2>Make a difference in the lives of dogs in need</h2>
+    <div class="row gy-5 justify-content-center align-items-center mt-5">
+      <div class="col-lg-6">
+        <h1>VOLUNTEER</h1>
+        <h2>Volunteers are essential for us to be able to provide care and attention to the dogs at Barb's Dog Rescue.</h2>
+        <p>
+          There are many ways to volunteer, allowing you to select the one that best fits your interests and talents. Opportunities include:
+          <ul>
+            <li><span class="fw-bold">Socialization:</span> Young puppies need human interaction to prepare them for adoption. You can help by spending just a couple hours a week holding, petting, and playing with these pups.</li>
+            <li><span class="fw-bold">Care and Feeding:</span> Provide nightly food and care to our 200 adoptable dogs on site. We need a minimum of three volunteers each night, 365 days a year.</li>
+            <li><span class="fw-bold">Foster:</span> Foster homes are critical. Fostering puppies ensures their ability to survive until they make the transition from formula to solid food. Foster homes are also needed for dogs recovering from surgery or injury.</li>
+            <li><span class="fw-bold">Additional Opportunities:</span> Website maintenance, office help, and more.</li>
+          </ul>
+        </p>
       </div>
-    </div>
-    <div class="text-center">
-      <a href="#volunteer-info" class="btn-get-started scrollto">Get Started</a>
+      <div class="col-lg-5">
+        <img src="{{ url_for('static', filename='img/volunteer/hero.jpeg') }}" class="img-fluid rounded-4 shadow" style="object-fit: cover; height: 100%; width: 100%;" alt="Volunteering at Barb's Dog Rescue">
+      </div>
     </div>
   </div>
-</section><!-- End Hero -->
+</section>
 
-<main id="main">
-  <!-- ======= Volunteer Info Section ======= -->
-  <section id="volunteer-info" class="volunteer-info">
-    <div class="container" data-aos="fade-up">
-      <div class="section-title">
-        <h2>Volunteer</h2>
-        <p>How You Can Help</p>
-      </div>
-
-      <div class="row content">
-        <div class="col-lg-6">
-          <p>
-            Volunteers are the heart of our operation at Barb's Dog Rescue. Whether you live locally or are visiting Rocky Point, there are many ways you can help make a difference:
-          </p>
-          <ul>
-            <li><i class="ri-check-double-line"></i> Walk dogs and provide much-needed socialization</li>
-            <li><i class="ri-check-double-line"></i> Help with feeding, cleaning, and basic care</li>
-            <li><i class="ri-check-double-line"></i> Assist with adoption events and fundraisers</li>
-            <li><i class="ri-check-double-line"></i> Transport dogs to vet appointments or adoption events</li>
-            <li><i class="ri-check-double-line"></i> Help with administrative tasks and social media</li>
-          </ul>
-        </div>
-        <div class="col-lg-6 pt-4 pt-lg-0">
-          <p>
-            No experience is necessary! We'll train you in all aspects of dog care and rescue operations. Whether you can volunteer for a few hours, a day, or on a regular schedule, we welcome your help and support.
-          </p>
-          <p>
-            If you're visiting Rocky Point, spending time at the rescue can be a rewarding part of your vacation. Many of our regular volunteers started as visitors who fell in love with our mission.
-          </p>
-          <a href="#volunteer-form" class="btn-learn-more scrollto">Sign Up Today</a>
-        </div>
+<!-- FAQ Section -->
+<section id="adoption-faq" class="section py-5 bg-light">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Get Involved</h2>
+        <p>Learn more and sign up to volunteer</p>
       </div>
     </div>
-  </section><!-- End Volunteer Info Section -->
-
-  <!-- ======= Volunteer Form Section ======= -->
-  <section id="volunteer-form" class="volunteer-form section-bg">
-    <div class="container" data-aos="fade-up">
-      <div class="section-title">
-        <h2>Volunteer</h2>
-        <p>Join Our Team</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-          <img src="{{ url_for('static', filename='img/team/team-2.jpg') }}" class="img-fluid" alt="Volunteer with dogs">
-        </div>
-        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
-          <form action="#" method="post" role="form" class="php-email-form">
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+    
+    <div class="row gy-4">
+      <!-- FAQ Column -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-body p-4">
+            <h3 class="mb-4">Frequently Asked Questions</h3>
+            <div class="accordion" id="adoptionFAQ">
+              <div class="accordion-item shadow-sm mb-3">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                    Do I need to speak Spanish to volunteer?
+                  </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#adoptionFAQ">
+                  <div class="accordion-body">
+                    <p>No, while some Spanish is helpful, it's not required. Many of our staff members speak English, and we have bilingual volunteers who can assist with translation when needed.</p>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              
+              <div class="accordion-item shadow-sm mb-3">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                    Can I volunteer if I'm only visiting Rocky Point for a short time?
+                  </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#adoptionFAQ">
+                  <div class="accordion-body">
+                    <p>Absolutely! Many of our volunteers are visitors who spend a few hours or days helping during their vacation. Even a short visit makes a big difference to our dogs.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="accordion-item shadow-sm mb-3">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                    Is there a minimum age requirement for volunteers?
+                  </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#adoptionFAQ">
+                  <div class="accordion-body">
+                    <p>Volunteers under 18 must be accompanied by an adult. Children as young as 8 can volunteer with parental supervision, helping with tasks appropriate to their age and abilities.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="accordion-item shadow-sm mb-3">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                    What should I wear when volunteering?
+                  </button>
+                </h2>
+                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#adoptionFAQ">
+                  <div class="accordion-body">
+                    <p>Wear comfortable clothes that you don't mind getting dirty. Closed-toe shoes are required. We recommend bringing a hat, sunscreen, and water bottle, especially during hot months.</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="form-group mt-3">
-              <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone Number">
-            </div>
-            <div class="form-group mt-3">
-              <select name="availability" id="availability" class="form-control" required>
-                <option value="" disabled selected>Availability</option>
-                <option value="one-time">One-time Visit</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-                <option value="flexible">Flexible</option>
-              </select>
-            </div>
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Tell us about yourself and how you'd like to help" required></textarea>
-            </div>
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="submit">Submit</button></div>
-          </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Volunteer Form Column -->
+      <div class="col-lg-6">
+        <div class="card shadow-sm border-0 h-100">
+          <div class="card-body p-4">
+            <h3 class="mb-3">Sign Up to Volunteer</h3>
+            <p class="mb-4">Fill out the form below and we'll get back to you as soon as possible.</p>
+            <form method="post" action="{{ url_for('volunteer.volunteer') }}" novalidate>
+              {{ form.hidden_tag() }}
+              
+              <div class="mb-3">
+                {{ form.name.label(class="form-label") }}
+                <span class="text-danger">*</span>
+                {{ form.name(class="form-control" + (" is-invalid" if form.name.errors else ""), placeholder="Your Name") }}
+                {% if form.name.errors %}
+                  <div class="invalid-feedback">
+                    {% for error in form.name.errors %}{{ error }}{% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+              
+              <div class="mb-3">
+                {{ form.email.label(class="form-label") }}
+                <span class="text-danger">*</span>
+                {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else ""), placeholder="Your Email Address") }}
+                {% if form.email.errors %}
+                  <div class="invalid-feedback">
+                    {% for error in form.email.errors %}{{ error }}{% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+              
+              <div class="mb-3">
+                {{ form.phone.label(class="form-label") }}
+                {{ form.phone(class="form-control" + (" is-invalid" if form.phone.errors else ""), placeholder="Your Phone Number") }}
+                {% if form.phone.errors %}
+                  <div class="invalid-feedback">
+                    {% for error in form.phone.errors %}{{ error }}{% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+              
+              <div class="mb-3">
+                {{ form.availability.label(class="form-label") }}
+                {{ form.availability(class="form-select" + (" is-invalid" if form.availability.errors else "")) }}
+                {% if form.availability.errors %}
+                  <div class="invalid-feedback">
+                    {% for error in form.availability.errors %}{{ error }}{% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+              
+              <div class="mb-4">
+                {{ form.comments.label(class="form-label") }}
+                <span class="text-danger">*</span>
+                {{ form.comments(class="form-control" + (" is-invalid" if form.comments.errors else ""), placeholder="Tell us about yourself and how you'd like to help", rows="4") }}
+                {% if form.comments.errors %}
+                  <div class="invalid-feedback">
+                    {% for error in form.comments.errors %}{{ error }}{% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </section><!-- End Volunteer Form Section -->
+  </div>
+</section>
 
-  <!-- ======= Volunteer FAQ Section ======= -->
-  <section id="volunteer-faq" class="volunteer-faq">
-    <div class="container" data-aos="fade-up">
-      <div class="section-title">
-        <h2>FAQ</h2>
-        <p>Volunteer Questions</p>
-      </div>
-
-      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-        <div class="col-lg-5">
-          <i class="ri-question-line"></i>
-          <h4>Do I need to speak Spanish to volunteer?</h4>
-        </div>
-        <div class="col-lg-7">
-          <p>
-            No, while some Spanish is helpful, it's not required. Many of our staff members speak English, and we have bilingual volunteers who can assist with translation when needed.
-          </p>
-        </div>
-      </div><!-- End F.A.Q Item-->
-
-      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-        <div class="col-lg-5">
-          <i class="ri-question-line"></i>
-          <h4>Can I volunteer if I'm only visiting Rocky Point for a short time?</h4>
-        </div>
-        <div class="col-lg-7">
-          <p>
-            Absolutely! Many of our volunteers are visitors who spend a few hours or days helping during their vacation. Even a short visit makes a big difference to our dogs.
-          </p>
-        </div>
-      </div><!-- End F.A.Q Item-->
-
-      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-        <div class="col-lg-5">
-          <i class="ri-question-line"></i>
-          <h4>Is there a minimum age requirement for volunteers?</h4>
-        </div>
-        <div class="col-lg-7">
-          <p>
-            Volunteers under 18 must be accompanied by an adult. Children as young as 8 can volunteer with parental supervision, helping with tasks appropriate to their age and abilities.
-          </p>
-        </div>
-      </div><!-- End F.A.Q Item-->
-
-      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-        <div class="col-lg-5">
-          <i class="ri-question-line"></i>
-          <h4>What should I wear when volunteering?</h4>
-        </div>
-        <div class="col-lg-7">
-          <p>
-            Wear comfortable clothes that you don't mind getting dirty. Closed-toe shoes are required. We recommend bringing a hat, sunscreen, and water bottle, especially during hot months.
-          </p>
-        </div>
-      </div><!-- End F.A.Q Item-->
-    </div>
-  </section><!-- End Volunteer FAQ Section -->
-</main><!-- End #main -->
 {% endblock %}
